@@ -1,0 +1,166 @@
+[
+    {
+        "id": 1,
+        "name": "Accounting",
+        "href": "/accounting",
+        "icon": "mdi:dollar",
+        "children": [
+            {
+                "id": 101,
+                "name": "Accountants"
+            },
+            {
+                "id": 102,
+                "name": "Auditors"
+            },
+            {
+                "id": 103,
+                "name": "Financial Analysts"
+            },
+            {
+                "id": 104,
+                "name": "Related Roles"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Administrative",
+        "href": "/administrative",
+        "icon": "ic:baseline-admin-panel-settings",
+        "children": [
+            {
+                "id": 201,
+                "name": "Administrative Assistants"
+            },
+            {
+                "id": 202,
+                "name": "Office Managers"
+            },
+            {
+                "id": 203,
+                "name": "Receptionists"
+            },
+            {
+                "id": 204,
+                "name": "Similar Roles"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Advertising",
+        "href": "/advertising",
+        "icon": "ic:round-ad-units",
+        "children": [
+            {
+                "id": 301,
+                "name": "Advertising Executives"
+            },
+            {
+                "id": 302,
+                "name": "Copywriters"
+            },
+            {
+                "id": 303,
+                "name": "Media Planners"
+            },
+            {
+                "id": 304,
+                "name": "Marketing Specialists"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Agriculture",
+        "href": "/agriculture",
+        "icon": "material-symbols:agriculture",
+        "children": [
+            {
+                "id": 401,
+                "name": "Agricultural Scientists"
+            },
+            {
+                "id": 402,
+                "name": "Farmers"
+            },
+            {
+                "id": 403,
+                "name": "Agribusiness Professionals"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Arts and Design",
+        "href": "/arts-and-design",
+        "icon": "mdi:art",
+        "children": [
+            {
+                "id": 501,
+                "name": "Graphic Designers"
+            },
+            {
+                "id": 502,
+                "name": "Artists"
+            },
+            {
+                "id": 503,
+                "name": "Illustrators"
+            },
+            {
+                "id": 504,
+                "name": "Photographers"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Banking",
+        "href": "/banking",
+        "icon": "ant-design:bank-filled",
+        "children": [
+            {
+                "id": 601,
+                "name": "Bankers"
+            },
+            {
+                "id": 602,
+                "name": "Financial Analysts"
+            },
+            {
+                "id": 603,
+                "name": "Loan Officers"
+            },
+            {
+                "id": 604,
+                "name": "Investment Professionals"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Biotechnology",
+        "href": "/biotechnology",
+        "icon": "material-symbols:biotech",
+        "children": [
+            {
+                "id": 701,
+                "name": "Biologists"
+            },
+            {
+                "id": 702,
+                "name": "Biochemists"
+            },
+            {
+                "id": 703,
+                "name": "Research Scientists"
+            },
+            {
+                "id": 704,
+                "name": "Biotech Engineers"
+            }
+        ]
+    }
+]

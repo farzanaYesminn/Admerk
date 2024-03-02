@@ -1,0 +1,433 @@
+[
+    {
+        "id": 1,
+        "company": {
+            "id": 1,
+            "title": "Tech Solutions Inc.",
+            "icon": "tech-solutions-icon.png",
+            "website": "https://www.techsolutions.com",
+            "locations": [
+                {
+                    "country": "United States",
+                    "state": "California",
+                    "map": "https://maps.google.com/techsolutions-california"
+                },
+                {
+                    "country": "United States",
+                    "state": "New York",
+                    "map": "https://maps.google.com/techsolutions-newyork"
+                }
+            ],
+            "socials": [
+                {
+                    "id": 1,
+                    "icon": "ic:baseline-facebook",
+                    "title": "Facebook",
+                    "link": "https://www.facebook.com/techsolutions"
+                },
+                {
+                    "id": 2,
+                    "icon": "mdi:twitter",
+                    "title": "Twitter",
+                    "link": "https://www.twitter.com/techsolutions"
+                }
+            ]
+        },
+        "jobType": "fulltime",
+        "postedOn": "2023-09-27",
+        "title": "Software Engineer",
+        "location": {
+            "country": "United States",
+            "state": "California",
+            "map": "https://maps.google.com/techsolutions-california"
+        },
+        "salary": {
+            "amount": 80000,
+            "duration": "yearly"
+        },
+        "experience": "intermediate",
+        "overview": "Join our dynamic team of software engineers!",
+        "jobDescription": "Responsible for developing and maintaining software applications.",
+        "responsibility": "Design and implement software solutions, troubleshoot issues, and collaborate with cross-functional teams.",
+        "requiredSkills": "Proficiency in Java, experience with web development frameworks.",
+        "benefits": "Healthcare, retirement plan, flexible work hours."
+    },
+    {
+        "id": 2,
+        "company": {
+            "id": 2,
+            "title": "Digital Marketing Pro",
+            "icon": "digital-marketing-icon.png",
+            "website": "https://www.digitalmarketingpro.com",
+            "locations": [
+                {
+                    "country": "Canada",
+                    "state": "Ontario",
+                    "map": "https://maps.google.com/digitalmarketingpro-ontario"
+                }
+            ],
+            "socials": [
+                {
+                    "id": 3,
+                    "icon": "mdi:linkedin",
+                    "title": "LinkedIn",
+                    "link": "https://www.linkedin.com/digitalmarketingpro"
+                }
+            ]
+        },
+        "jobType": "freelance",
+        "postedOn": "2023-09-26",
+        "title": "Digital Marketing Specialist",
+        "location": {
+            "country": "Canada",
+            "state": "Ontario",
+            "map": "https://maps.google.com/digitalmarketingpro-ontario"
+        },
+        "salary": {
+            "amount": 5000,
+            "duration": "monthly"
+        },
+        "experience": "expert",
+        "overview": "Exciting freelance opportunity for a digital marketing specialist!",
+        "jobDescription": "Plan and execute digital marketing campaigns, analyze data, and drive results.",
+        "responsibility": "Create and manage online advertising, optimize SEO, and track KPIs.",
+        "requiredSkills": "Deep knowledge of SEO, PPC, and socials media advertising.",
+        "benefits": "Flexible work schedule, remote work option."
+    },
+    {
+        "id": 3,
+        "company": {
+            "id": 3,
+            "title": "HealthCare Innovations",
+            "icon": "healthcare-icon.png",
+            "website": "https://www.healthcareinnovations.com",
+            "locations": [
+                {
+                    "country": "United Kingdom",
+                    "state": "London",
+                    "map": "https://maps.google.com/healthcareinnovations-london"
+                }
+            ],
+            "socials": [
+                {
+                    "id": 4,
+                    "icon": "mdi:twitter",
+                    "title": "Twitter",
+                    "link": "https://www.twitter.com/healthcareinnovations"
+                }
+            ]
+        },
+        "jobType": "part time",
+        "postedOn": "2023-09-25",
+        "title": "Nurse Practitioner",
+        "location": {
+            "country": "United Kingdom",
+            "state": "London",
+            "map": "https://maps.google.com/healthcareinnovations-london"
+        },
+        "salary": {
+            "amount": 35000,
+            "duration": "yearly"
+        },
+        "experience": "fresher",
+        "overview": "Join our healthcare team as a part-time Nurse Practitioner!",
+        "jobDescription": "Provide patient care, assist in medical procedures, and maintain patient records.",
+        "responsibility": "Deliver compassionate healthcare services and collaborate with medical professionals.",
+        "requiredSkills": "Nursing degree and certification, strong communication skills.",
+        "benefits": "Competitive salary, professional development opportunities."
+    },
+    {
+        "id": 4,
+        "company": {
+            "id": 4,
+            "title": "Creative Minds Studios",
+            "icon": "creative-minds-icon.png",
+            "website": "https://www.creativemindsstudios.com",
+            "locations": [
+                {
+                    "country": "Australia",
+                    "state": "Sydney",
+                    "map": "https://maps.google.com/creativeminds-sydney"
+                }
+            ],
+            "socials": [
+                {
+                    "id": 5,
+                    "icon": "ri:instagram-fill",
+                    "title": "Instagram",
+                    "link": "https://www.instagram.com/creativemindsstudios"
+                }
+            ]
+        },
+        "jobType": "fulltime",
+        "postedOn": "2023-09-24",
+        "title": "Graphic Designer",
+        "location": {
+            "country": "Australia",
+            "state": "Sydney",
+            "map": "https://maps.google.com/creativeminds-sydney"
+        },
+        "salary": {
+            "amount": 60000,
+            "duration": "yearly"
+        },
+        "experience": "intermediate",
+        "overview": "Join our creative team as a full-time Graphic Designer!",
+        "jobDescription": "Create visual content, design marketing materials, and collaborate on branding projects.",
+        "responsibility": "Produce high-quality graphics, follow brand guidelines, and work on design concepts.",
+        "requiredSkills": "Proficiency in Adobe Creative Suite, strong design portfolio.",
+        "benefits": "Health benefits, creative workspace."
+    },
+    {
+        "id": 5,
+        "company": {
+            "id": 5,
+            "title": "EcoTech Solutions",
+            "icon": "ecotech-icon.png",
+            "website": "https://www.ecotechsolutions.com",
+            "locations": [
+                {
+                    "country": "Germany",
+                    "state": "Berlin",
+                    "map": "https://maps.google.com/ecotechsolutions-berlin"
+                }
+            ],
+            "socials": [
+                {
+                    "id": 6,
+                    "icon": "mdi:linkedin",
+                    "title": "LinkedIn",
+                    "link": "https://www.linkedin.com/ecotechsolutions"
+                }
+            ]
+        },
+        "jobType": "fulltime",
+        "postedOn": "2023-09-23",
+        "title": "Environmental Scientist",
+        "location": {
+            "country": "Germany",
+            "state": "Berlin",
+            "map": "https://maps.google.com/ecotechsolutions-berlin"
+        },
+        "salary": {
+            "amount": 70000,
+            "duration": "yearly"
+        },
+        "experience": "expert",
+        "overview": "Make an impact as an Environmental Scientist at EcoTech Solutions!",
+        "jobDescription": "Research and analyze environmental data, propose sustainable solutions, and support conservation efforts.",
+        "responsibility": "Conduct fieldwork, prepare reports, and collaborate with environmental organizations.",
+        "requiredSkills": "Advanced knowledge of environmental science, research experience.",
+        "benefits": "Green workplace, professional development."
+    },
+    {
+        "id": 6,
+        "company": {
+            "id": 6,
+            "title": "Finance Pro Services",
+            "icon": "finance-icon.png",
+            "website": "https://www.financeproservices.com",
+            "locations": [
+                {
+                    "country": "United States",
+                    "state": "New York",
+                    "map": "https://maps.google.com/financeproservices-newyork"
+                }
+            ],
+            "socials": [
+                {
+                    "id": 7,
+                    "icon": "ic:baseline-facebook",
+                    "title": "Facebook",
+                    "link": "https://www.facebook.com/financeproservices"
+                }
+            ]
+        },
+        "jobType": "fulltime",
+        "postedOn": "2023-09-22",
+        "title": "Financial Analyst",
+        "location": {
+            "country": "United States",
+            "state": "New York",
+            "map": "https://maps.google.com/financeproservices-newyork"
+        },
+        "salary": {
+            "amount": 75000,
+            "duration": "yearly"
+        },
+        "experience": "intermediate",
+        "overview": "Join our finance team as a Financial Analyst!",
+        "jobDescription": "Analyze financial data, create reports, and provide insights for decision-making.",
+        "responsibility": "Assist in budgeting, forecasting, and financial modeling.",
+        "requiredSkills": "Strong analytical skills, proficiency in Excel, finance background.",
+        "benefits": "Competitive salary, professional growth opportunities."
+    },
+    {
+        "id": 7,
+        "company": {
+            "id": 7,
+            "title": "Travel Adventures Ltd.",
+            "icon": "travel-icon.png",
+            "website": "https://www.traveladventures.com",
+            "locations": [
+                {
+                    "country": "Spain",
+                    "state": "Barcelona",
+                    "map": "https://maps.google.com/traveladventures-barcelona"
+                }
+            ],
+            "socials": [
+                {
+                    "id": 8,
+                    "icon": "mdi:twitter",
+                    "title": "Twitter",
+                    "link": "https://www.twitter.com/traveladventures"
+                }
+            ]
+        },
+        "jobType": "fulltime",
+        "postedOn": "2023-09-21",
+        "title": "Travel Consultant",
+        "location": {
+            "country": "Spain",
+            "state": "Barcelona",
+            "map": "https://maps.google.com/traveladventures-barcelona"
+        },
+        "salary": {
+            "amount": 40000,
+            "duration": "yearly"
+        },
+        "experience": "no-experience",
+        "overview": "Start your career in travel as a Travel Consultant!",
+        "jobDescription": "Assist customers with travel bookings, provide destination information, and ensure exceptional customer service.",
+        "responsibility": "Plan itineraries, book flights and accommodations, and handle inquiries.",
+        "requiredSkills": "Passion for travel, strong communication skills.",
+        "benefits": "Travel discounts, training program."
+    },
+    {
+        "id": 8,
+        "company": {
+            "id": 8,
+            "title": "Tech Innovators",
+            "icon": "tech-innovators-icon.png",
+            "website": "https://www.techinnovators.com",
+            "locations": [
+                {
+                    "country": "United States",
+                    "state": "California",
+                    "map": "https://maps.google.com/techinnovators-california"
+                }
+            ],
+            "socials": [
+                {
+                    "id": 9,
+                    "icon": "mdi:linkedin",
+                    "title": "LinkedIn",
+                    "link": "https://www.linkedin.com/techinnovators"
+                }
+            ]
+        },
+        "jobType": "internship",
+        "postedOn": "2023-09-20",
+        "title": "Software Development Intern",
+        "location": {
+            "country": "United States",
+            "state": "California",
+            "map": "https://maps.google.com/techinnovators-california"
+        },
+        "salary": {
+            "amount": 20000,
+            "duration": "3 months"
+        },
+        "experience": "internship",
+        "overview": "Kickstart your career with our Software Development Internship!",
+        "jobDescription": "Learn and contribute to software development projects, gain hands-on experience, and work with a talented team.",
+        "responsibility": "Code, test, and collaborate on software solutions.",
+        "requiredSkills": "Basic programming knowledge, eagerness to learn.",
+        "benefits": "Mentorship, real-world projects."
+    },
+    {
+        "id": 9,
+        "company": {
+            "id": 9,
+            "title": "HealthTech Innovations",
+            "icon": "healthtech-icon.png",
+            "website": "https://www.healthtechinnovations.com",
+            "locations": [
+                {
+                    "country": "Canada",
+                    "state": "Ontario",
+                    "map": "https://maps.google.com/healthtechinnovations-ontario"
+                }
+            ],
+            "socials": [
+                {
+                    "id": 10,
+                    "icon": "ri:instagram-fill",
+                    "title": "Instagram",
+                    "link": "https://www.instagram.com/healthtechinnovations"
+                }
+            ]
+        },
+        "jobType": "fulltime",
+        "postedOn": "2023-09-19",
+        "title": "Health Data Analyst",
+        "location": {
+            "country": "Canada",
+            "state": "Ontario",
+            "map": "https://maps.google.com/healthtechinnovations-ontario"
+        },
+        "salary": {
+            "amount": 65000,
+            "duration": "yearly"
+        },
+        "experience": "intermediate",
+        "overview": "Join our team as a Health Data Analyst and make a difference in healthcare!",
+        "jobDescription": "Analyze healthcare data, develop insights, and contribute to improving healthcare systems.",
+        "responsibility": "Work with medical professionals, perform data analysis, and present findings.",
+        "requiredSkills": "Data analysis skills, healthcare background.",
+        "benefits": "Competitive salary, meaningful work."
+    },
+    {
+        "id": 10,
+        "company": {
+            "id": 10,
+            "title": "Green Energy Solutions",
+            "icon": "green-energy-icon.png",
+            "website": "https://www.greenenergysolutions.com",
+            "locations": [
+                {
+                    "country": "United States",
+                    "state": "California",
+                    "map": "https://maps.google.com/greenenergysolutions-california"
+                }
+            ],
+            "socials": [
+                {
+                    "id": 11,
+                    "icon": "ic:baseline-facebook",
+                    "title": "Facebook",
+                    "link": "https://www.facebook.com/greenenergysolutions"
+                }
+            ]
+        },
+        "jobType": "fulltime",
+        "postedOn": "2023-09-18",
+        "title": "Renewable Energy Engineer",
+        "location": {
+            "country": "United States",
+            "state": "California",
+            "map": "https://maps.google.com/greenenergysolutions-california"
+        },
+        "salary": {
+            "amount": 80000,
+            "duration": "yearly"
+        },
+        "experience": "expert",
+        "overview": "Join our mission to create a sustainable future as a Renewable Energy Engineer!",
+        "jobDescription": "Design and implement renewable energy systems, conduct feasibility studies, and promote eco-friendly solutions.",
+        "responsibility": "Lead projects, collaborate with teams, and stay updated on green technologies.",
+        "requiredSkills": "Engineering degree, renewable energy expertise.",
+        "benefits": "Green workplace, career growth opportunities."
+    }
+]

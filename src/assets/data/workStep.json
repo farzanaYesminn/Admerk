@@ -1,0 +1,17 @@
+[
+    {
+        "icon": "solar:user-bold",
+        "title": "Create Account",
+        "subtitle": "It’s very easy to open an account and start your journey."
+    },
+    {
+        "icon": "clarity:edit-solid",
+        "title": "Complete your profile",
+        "subtitle": "Complete your profile with all the info to get attention of client."
+    },
+    {
+        "icon": "solar:upload-linear",
+        "title": "Apply job or hire",
+        "subtitle": "Apply & get your preferable jobs with all the requirements and get it."
+    }
+]

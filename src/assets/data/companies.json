@@ -1,0 +1,212 @@
+[
+    {
+        "id": 1,
+        "title": "Tech Solutions Inc.",
+        "icon": "tech-solutions-icon.png",
+        "website": "https://www.techsolutions.com",
+        "locations": [
+            {
+                "country": "United States",
+                "state": "California",
+                "map": "https://maps.google.com/techsolutions-california"
+            },
+            {
+                "country": "United States",
+                "state": "New York",
+                "map": "https://maps.google.com/techsolutions-newyork"
+            }
+        ],
+        "socials": [
+            {
+                "id": 1,
+                "icon": "ic:baseline-facebook",
+                "title": "Facebook",
+                "link": "https://www.facebook.com/techsolutions"
+            },
+            {
+                "id": 2,
+                "icon": "mdi:twitter",
+                "title": "Twitter",
+                "link": "https://www.twitter.com/techsolutions"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Digital Marketing Pro",
+        "icon": "digital-marketing-icon.png",
+        "website": "https://www.digitalmarketingpro.com",
+        "locations": {
+            "country": "Canada",
+            "state": "Ontario",
+            "map": "https://maps.google.com/digitalmarketingpro-ontario"
+        },
+        "socials": [
+            {
+                "id": 3,
+                "icon": "mdi:linkedin",
+                "title": "LinkedIn",
+                "link": "https://www.linkedin.com/digitalmarketingpro"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "HealthCare Innovations",
+        "icon": "healthcare-icon.png",
+        "website": "https://www.healthcareinnovations.com",
+        "locations": {
+            "country": "United Kingdom",
+            "state": "London",
+            "map": "https://maps.google.com/healthcareinnovations-london"
+        },
+        "socials": [
+            {
+                "id": 4,
+                "icon": "mdi:twitter",
+                "title": "Twitter",
+                "link": "https://www.twitter.com/healthcareinnovations"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Creative Minds Studios",
+        "icon": "creative-minds-icon.png",
+        "website": "https://www.creativemindsstudios.com",
+        "locations": {
+            "country": "Australia",
+            "state": "Sydney",
+            "map": "https://maps.google.com/creativeminds-sydney"
+        },
+        "socials": [
+            {
+                "id": 5,
+                "icon": "ri:instagram-fill",
+                "title": "Instagram",
+                "link": "https://www.instagram.com/creativemindsstudios"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "EcoTech Solutions",
+        "icon": "ecotech-icon.png",
+        "website": "https://www.ecotechsolutions.com",
+        "locations": [
+            {
+                "country": "Germany",
+                "state": "Berlin",
+                "map": "https://maps.google.com/ecotechsolutions-berlin"
+            },
+            {
+                "country": "France",
+                "state": "Paris",
+                "map": "https://maps.google.com/ecotechsolutions-paris"
+            }
+        ],
+        "socials": [
+            {
+                "id": 6,
+                "icon": "mdi:linkedin",
+                "title": "LinkedIn",
+                "link": "https://www.linkedin.com/ecotechsolutions"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Finance Pro Services",
+        "icon": "finance-icon.png",
+        "website": "https://www.financeproservices.com",
+        "locations": {
+            "country": "United States",
+            "state": "New York",
+            "map": "https://maps.google.com/financeproservices-newyork"
+        },
+        "socials": [
+            {
+                "id": 7,
+                "icon": "ic:baseline-facebook",
+                "title": "Facebook",
+                "link": "https://www.facebook.com/financeproservices"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Travel Adventures Ltd.",
+        "icon": "travel-icon.png",
+        "website": "https://www.traveladventures.com",
+        "locations": {
+            "country": "Spain",
+            "state": "Barcelona",
+            "map": "https://maps.google.com/traveladventures-barcelona"
+        },
+        "socials": [
+            {
+                "id": 8,
+                "icon": "mdi:twitter",
+                "title": "Twitter",
+                "link": "https://www.twitter.com/traveladventures"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Tech Innovators",
+        "icon": "tech-innovators-icon.png",
+        "website": "https://www.techinnovators.com",
+        "locations": {
+            "country": "United States",
+            "state": "California",
+            "map": "https://maps.google.com/techinnovators-california"
+        },
+        "socials": [
+            {
+                "id": 9,
+                "icon": "mdi:linkedin",
+                "title": "LinkedIn",
+                "link": "https://www.linkedin.com/techinnovators"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "title": "HealthTech Innovations",
+        "icon": "healthtech-icon.png",
+        "website": "https://www.healthtechinnovations.com",
+        "locations": {
+            "country": "Canada",
+            "state": "Ontario",
+            "map": "https://maps.google.com/healthtechinnovations-ontario"
+        },
+        "socials": [
+            {
+                "id": 10,
+                "icon": "ri:instagram-fill",
+                "title": "Instagram",
+                "link": "https://www.instagram.com/healthtechinnovations"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "title": "Green Energy Solutions",
+        "icon": "green-energy-icon.png",
+        "website": "https://www.greenenergysolutions.com",
+        "locations": {
+            "country": "United States",
+            "state": "California",
+            "map": "https://maps.google.com/greenenergysolutions-california"
+        },
+        "socials": [
+            {
+                "id": 11,
+                "icon": "ic:baseline-facebook",
+                "title": "Facebook",
+                "link": "https://www.facebook.com/greenenergysolutions"
+            }
+        ]
+    }
+]
