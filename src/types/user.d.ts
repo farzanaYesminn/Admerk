@@ -11,6 +11,7 @@ type UserInfo = {
     email: string;
     location: Site;
     isRefugee: boolean;
+    refugeeNumber: string;
 };
 
 type Application = {

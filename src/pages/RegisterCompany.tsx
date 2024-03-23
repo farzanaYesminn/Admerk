@@ -45,7 +45,7 @@ export default function RegisterCompany() {
             twitter: "",
             whatsApp: "",
         },
-        confirm_password: "",
+        confirmPassword: "",
         terms: false,
     };
 
@@ -70,7 +70,7 @@ export default function RegisterCompany() {
         password: Yup.string()
             .min(8, "Password must be at least 8 characters")
             .required("Password is required"),
-        confirm_password: Yup.string()
+        confirmPassword: Yup.string()
             .oneOf([Yup.ref("password"), undefined], "Passwords must match")
             .required("Confirm password is required"),
         social: Yup.object().shape({
@@ -99,9 +99,9 @@ export default function RegisterCompany() {
     });
 
     const handleSubmit = async (values: FormikValues) => {
-        const { confirm_password, terms, ...credentials } =
+        const { confirmPassword, terms, ...credentials } =
             values as CompanyRegisterCredentials & {
-                confirm_password: string;
+                confirmPassword: string;
                 terms: string;
             };
 
@@ -342,21 +342,21 @@ export default function RegisterCompany() {
                             variant="auth"
                             as={GridItem}
                             isInvalid={
-                                !!errors.confirm_password && touched.confirm_password
+                                !!errors.confirmPassword && touched.confirmPassword
                             }
                         >
-                            <FormLabel htmlFor="confirm_password">
+                            <FormLabel htmlFor="confirmPassword">
                                 Confirm Password*
                             </FormLabel>
                             <Field
                                 as={Input}
-                                id="confirm_password"
-                                name="confirm_password"
+                                id="confirmPassword"
+                                name="confirmPassword"
                                 type="password"
                                 variant="unstyled"
                             />
                             <FormErrorMessage mt={0} fontSize="md">
-                                {errors.confirm_password}
+                                {errors.confirmPassword}
                             </FormErrorMessage>
                         </FormControl>
 

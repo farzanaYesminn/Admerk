@@ -52,7 +52,7 @@ export default function JobDetails() {
 
     const applyJobHandler = async () => {
         try {
-            await applyJob(job.name_id);
+            await applyJob(job.jobId);
             toast({
                 title: "Application successful",
                 status: "success",

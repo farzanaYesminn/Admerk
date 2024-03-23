@@ -25,11 +25,11 @@ export default function JobsFeed({ allJobs }: Props) {
     const [loading, setLoading] = useState<boolean>(false);
     const toast = useToast();
 
-    const applyJobHandler = async (name_id: string) => {
+    const applyJobHandler = async (jobId: string) => {
         setLoading(true);
         if (authInfo?.loginData.role === "user") {
             try {
-                await applyJob(name_id);
+                await applyJob(jobId);
                 toast({
                     title: "Application successful",
                     status: "success",
@@ -168,7 +168,7 @@ export default function JobsFeed({ allJobs }: Props) {
                                                 fontSize="sm"
                                                 disabled={loading}
                                                 onClick={() =>
-                                                    applyJobHandler(job.name_id)
+                                                    applyJobHandler(job.jobId)
                                                 }
                                             >
                                                 Apply

@@ -15,10 +15,10 @@ import {
     Text,
     useToast,
 } from "@chakra-ui/react";
-import { Field, Form, Formik, FormikValues } from "formik";
-import { Icon } from "@iconify/react/dist/iconify.js";
-import { registerUser } from "services/api/auth";
-import { useNavigate } from "react-router-dom";
+import {Field, Form, Formik, FormikValues} from "formik";
+import {Icon} from "@iconify/react/dist/iconify.js";
+import {registerUser} from "services/api/auth";
+import {useNavigate} from "react-router-dom";
 
 function convertDateFormatBackend(inputDate: string) {
     const parts = inputDate.split("-");
@@ -27,8 +27,7 @@ function convertDateFormatBackend(inputDate: string) {
     const day = parseInt(parts[2], 10);
 
     const date = new Date(year, month, day);
-    const formattedDate = date.toISOString();
-    return formattedDate;
+    return date.toISOString();
 }
 
 export default function RegisterUser() {
@@ -41,10 +40,10 @@ export default function RegisterUser() {
         birthDate: null,
         username: "",
         password: "",
-        confirm_password: "",
+        confirmPassword: "",
         email: "",
         country: "",
-        is_refugee: false,
+        isRefugee: false,
         terms: false,
     };
 
@@ -58,21 +57,22 @@ export default function RegisterUser() {
         password: Yup.string()
             .required("Password is required")
             .min(8, "Password must be at least 8 characters long"),
-        confirm_password: Yup.string()
+        confirmPassword: Yup.string()
             .oneOf([Yup.ref("password"), undefined], "Passwords must match")
             .required("Confirm Password is required"),
         email: Yup.string().email("Invalid email address").required("Email is required"),
         country: Yup.string().required("Country is required"),
-        is_refugee: Yup.boolean().required("Please specify if you are a refugee or not"),
+        isRefugee: Yup.boolean().required("Please specify if you are a refugee or not"),
         terms: Yup.boolean().oneOf([true], "You must agree to our terms & conditions"),
     });
 
     const handleSubmit = async (values: FormikValues) => {
-        const { confirm_password, terms, country, ...rest } =
+        const { confirmPassword, terms, country, ...rest } =
             values as UserRegisterCredentials & {
-                confirm_password: string;
+                confirmPassword: string;
                 terms: string;
                 country: string;
+                isRefugee: boolean;
             };
 
         const credentials = {
@@ -220,21 +220,21 @@ export default function RegisterUser() {
                             variant="auth"
                             as={GridItem}
                             isInvalid={
-                                !!errors.confirm_password && touched.confirm_password
+                                !!errors.confirmPassword && touched.confirmPassword
                             }
                         >
-                            <FormLabel htmlFor="confirm_password">
+                            <FormLabel htmlFor="confirmPassword">
                                 Confirm Password*
                             </FormLabel>
                             <Field
                                 as={Input}
-                                id="confirm_password"
-                                name="confirm_password"
+                                id="confirmPassword"
+                                name="confirmPassword"
                                 type="password"
                                 variant="unstyled"
                             />
                             <FormErrorMessage mt={0} fontSize="md">
-                                {errors.confirm_password}
+                                {errors.confirmPassword}
                             </FormErrorMessage>
                         </FormControl>
                         <FormControl
@@ -257,21 +257,21 @@ export default function RegisterUser() {
                         <FormControl
                             variant="auth"
                             as={GridItem}
-                            isInvalid={!!errors.is_refugee && touched.is_refugee}
+                            isInvalid={!!errors.isRefugee && touched.isRefugee}
                         >
                             <Stack direction="row">
                                 <Field
                                     as={Checkbox}
-                                    id="is_refugee"
-                                    name="is_refugee"
+                                    id="isRefugee"
+                                    name="isRefugee"
                                     variant="unstyled"
                                 />
-                                <FormLabel htmlFor="is_refugee" cursor="pointer">
+                                <FormLabel htmlFor="isRefugee" cursor="pointer">
                                     I am a refugee*
                                 </FormLabel>
                             </Stack>
                             <FormErrorMessage mt={0} fontSize="md">
-                                {errors.is_refugee}
+                                {errors.isRefugee}
                             </FormErrorMessage>
                         </FormControl>
                         <FormControl

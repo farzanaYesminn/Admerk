@@ -1,6 +1,6 @@
 type Job = {
     id: number;
-    name_id: string;
+    jobId: string;
     company: {
         id: number;
         companyMail: string;

@@ -54,6 +54,33 @@ export default function UserProfile() {
                         </CardHeader>
                         <CardBody px={{ base: 4, xl: 8 }} py={{ base: 4, xl: 8 }}>
                             <SimpleGrid columns={1} spacing={6}>
+                                {/*<FormControl variant="auth" as={GridItem}>*/}
+                                {/*    <Stack direction="row">*/}
+                                {/*        <Checkbox*/}
+                                {/*            id="isRefugee"*/}
+                                {/*            name="isRefugee"*/}
+                                {/*            variant="unstyled"*/}
+                                {/*            defaultChecked={userInfo.isRefugee}*/}
+                                {/*            disabled*/}
+                                {/*        />*/}
+                                {/*        <FormLabel htmlFor="isRefugee" cursor="pointer">*/}
+                                {/*            Refugee*/}
+                                {/*        </FormLabel>*/}
+                                {/*    </Stack>*/}
+                                {/*</FormControl>*/}
+                                {userInfo.isRefugee && (
+                                    <FormControl variant="auth" as={GridItem}>
+                                        <FormLabel htmlFor="refugeeNumber">Refugee Number</FormLabel>
+                                        <Input
+                                            id="refugeeNumber"
+                                            name="refugeeNumber"
+                                            type="text"
+                                            variant="unstyled"
+                                            value={userInfo.refugeeNumber}
+                                            disabled
+                                        />
+                                    </FormControl>
+                                )}
                                 <FormControl variant="auth" as={GridItem}>
                                     <FormLabel htmlFor="firstName">First Name</FormLabel>
                                     <Input
@@ -121,19 +148,6 @@ export default function UserProfile() {
                                         value={userInfo.location.country}
                                         disabled
                                     />
-                                </FormControl>
-                                <FormControl variant="auth" as={GridItem}>
-                                    <Stack direction="row">
-                                        <Checkbox
-                                            id="is_refugee"
-                                            name="is_refugee"
-                                            variant="unstyled"
-                                            checked={userInfo.isRefugee}
-                                        />
-                                        <FormLabel htmlFor="is_refugee" cursor="pointer">
-                                            I am a refugee*
-                                        </FormLabel>
-                                    </Stack>
                                 </FormControl>
                             </SimpleGrid>
                         </CardBody>

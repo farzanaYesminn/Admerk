@@ -81,7 +81,7 @@ export default function CompanyDashboard() {
                         <Stack spacing={{ base: 6, xl: 8 }}>
                             {postedJobs &&
                                 postedJobs.map((job) => {
-                                    return <JobCard key={job.name_id} job={job} />;
+                                    return <JobCard key={job.jobId} job={job} />;
                                 })}
                         </Stack>
                     </CardBody>
