@@ -23,7 +23,10 @@ type UserRegisterCredentials = {
     location: {
         country: string;
         state: string;
-        map_url: string;
+        division: string;
+        city: string;
+        address: string;
+        zipCode: string;
     };
     password: string;
     isRefugee: boolean;

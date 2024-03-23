@@ -20,7 +20,7 @@ import { Field, Form, Formik, FormikValues } from "formik";
 import { Helmet } from "react-helmet-async";
 import { createJob } from "services/api/company";
 import * as Yup from "yup";
-import allCategories from "assets/data/serverCategories.json";
+// import allCategories from "assets/data/serverCategories.json";
 
 const convertFromSnake = (str: string) => {
     return str.split("_").join(" ");
@@ -34,28 +34,62 @@ export default function CompanyCreateJob() {
         "no_experience",
         "expert",
         "internship",
-        "intermediate",
+        "intermediate"
     ];
     const allSalaryDurations = ["weekly", "monthly", "hourly"];
+    const allCategories = [
+        "accounting",
+        "administration",
+        "advertising",
+        "agriculture",
+        "arts_and_design",
+        "banking",
+        "biotechnology",
+        "business_development",
+        "consulting",
+        "customer_service",
+        "education",
+        "engineering",
+        "finance",
+        "healthcare",
+        "human_resource",
+        "information_technology",
+        "legal",
+        "manufacturing",
+        "marketing",
+        "media_and_communication",
+        "nonprofit",
+        "retail",
+        "sales",
+        "science",
+        "sports_and_recreation",
+        "telecommunications",
+        "transportation_and_logistics",
+        "travel_and_tourism",
+        "utilities"
+    ];
 
     const initialValues = {
-        job_title: "",
+        jobTitle: "",
         category: "",
-        job_type: "",
+        jobType: "",
         overview: "",
-        job_description: "",
+        jobDescription: "",
         location: {
             country: "",
             state: "",
-            map_url: "",
+            division: "",
+            city: "",
+            address: "",
+            zipCode: "",
         },
-        salary_amount: "",
-        salary_duration: "",
+        salaryAmount: "",
+        salaryDuration: "",
         responsibility: "",
-        required_skills: "",
+        requiredSkills: "",
         experience: "",
         benefits: "",
-        job_url: "",
+        jobUrl: "",
     };
 
     const validationSchema = Yup.object().shape({
@@ -64,25 +98,28 @@ export default function CompanyCreateJob() {
             .oneOf(allCategories, "Invalid job category")
             .required("Category is required"),
         experience: Yup.string().oneOf(allExperiences, "Invalid experience level"),
-        job_description: Yup.string().required("Job description is required"),
-        job_title: Yup.string().required("Job title is required"),
-        job_type: Yup.string()
+        jobDescription: Yup.string().required("Job description is required"),
+        jobTitle: Yup.string().required("Job title is required"),
+        jobType: Yup.string()
             .oneOf(allJobTypes, "Invalid job type")
             .required("Category is required"),
-        job_url: Yup.string().url("Invalid URL format"),
+        jobUrl: Yup.string().url("Invalid URL format"),
         location: Yup.object().shape({
             country: Yup.string().required("Country is required"),
             state: Yup.string().required("State is required"),
-            map_url: Yup.string().url("Invalid URL format"),
+            division: Yup.string().required("Division is required"),
+            city: Yup.string().required("City is required"),
+            address: Yup.string().required("Address is required"),
+            zipCode: Yup.string().required("ZIP Code is required"),
         }),
         overview: Yup.string().required("Overview is required"),
-        required_skills: Yup.string().required("Required skills are required"),
+        requiredSkills: Yup.string().required("Required skills are required"),
         responsibility: Yup.string().required("Responsibility is required"),
-        salary_amount: Yup.number()
+        salaryAmount: Yup.number()
             .typeError("Salary amount must be a number")
             .positive("Salary amount must be a positive number")
             .required("Salary amount is required"),
-        salary_duration: Yup.string()
+        salaryDuration: Yup.string()
             .oneOf(allSalaryDurations, "Invalid salary duration")
             .required("Salary duration is required"),
     });
@@ -138,21 +175,21 @@ export default function CompanyCreateJob() {
                                         as={GridItem}
                                         colSpan={2}
                                         isInvalid={
-                                            !!errors.job_title && touched.job_title
+                                            !!errors.jobTitle && touched.jobTitle
                                         }
                                     >
-                                        <FormLabel htmlFor="job_title">
+                                        <FormLabel htmlFor="jobTitle">
                                             Job Title*
                                         </FormLabel>
                                         <Field
                                             as={Input}
-                                            id="job_title"
-                                            name="job_title"
+                                            id="jobTitle"
+                                            name="jobTitle"
                                             type="text"
                                             variant="unstyled"
                                         />
                                         <FormErrorMessage mt={0} fontSize="md">
-                                            {errors.job_title}
+                                            {errors.jobTitle}
                                         </FormErrorMessage>
                                     </FormControl>
 
@@ -192,15 +229,15 @@ export default function CompanyCreateJob() {
                                     <FormControl
                                         variant="auth"
                                         as={GridItem}
-                                        isInvalid={!!errors.job_type && touched.job_type}
+                                        isInvalid={!!errors.jobType && touched.jobType}
                                     >
-                                        <FormLabel htmlFor="job_type">
+                                        <FormLabel htmlFor="jobType">
                                             Job Type*
                                         </FormLabel>
                                         <Field
                                             as={Select}
-                                            id="job_type"
-                                            name="job_type"
+                                            id="jobType"
+                                            name="jobType"
                                             cursor="pointer"
                                             variant="unstyled"
                                             textTransform="capitalize"
@@ -218,7 +255,7 @@ export default function CompanyCreateJob() {
                                             ))}
                                         </Field>
                                         <FormErrorMessage mt={0} fontSize="md">
-                                            {errors.job_type}
+                                            {errors.jobType}
                                         </FormErrorMessage>
                                     </FormControl>
 
@@ -283,22 +320,22 @@ export default function CompanyCreateJob() {
                                         as={GridItem}
                                         colSpan={2}
                                         isInvalid={
-                                            !!errors.job_description &&
-                                            touched.job_description
+                                            !!errors.jobDescription &&
+                                            touched.jobDescription
                                         }
                                     >
-                                        <FormLabel htmlFor="job_description">
+                                        <FormLabel htmlFor="jobDescription">
                                             Job Description*
                                         </FormLabel>
                                         <Field
                                             as={Textarea}
-                                            id="job_description"
-                                            name="job_description"
+                                            id="jobDescription"
+                                            name="jobDescription"
                                             type="text"
                                             variant="unstyled"
                                         />
                                         <FormErrorMessage mt={0} fontSize="md">
-                                            {errors.job_description}
+                                            {errors.jobDescription}
                                         </FormErrorMessage>
                                     </FormControl>
 
@@ -351,24 +388,20 @@ export default function CompanyCreateJob() {
                                     <FormControl
                                         variant="auth"
                                         as={GridItem}
-                                        colSpan={2}
                                         isInvalid={
-                                            !!errors.location?.map_url &&
-                                            touched.location?.map_url
+                                            !!errors.location?.division && touched.location?.division
                                         }
                                     >
-                                        <FormLabel htmlFor="location.map_url">
-                                            Map URL*
-                                        </FormLabel>
+                                        <FormLabel htmlFor="location.division">Division</FormLabel>
                                         <Field
                                             as={Input}
-                                            id="location.map_url"
-                                            name="location.map_url"
+                                            id="location.division"
+                                            name="location.division"
                                             type="text"
                                             variant="unstyled"
                                         />
                                         <FormErrorMessage mt={0} fontSize="md">
-                                            {errors.location?.map_url}
+                                            {errors.location?.division}
                                         </FormErrorMessage>
                                     </FormControl>
 
@@ -376,22 +409,82 @@ export default function CompanyCreateJob() {
                                         variant="auth"
                                         as={GridItem}
                                         isInvalid={
-                                            !!errors.salary_amount &&
-                                            touched.salary_amount
+                                            !!errors.location?.city && touched.location?.city
                                         }
                                     >
-                                        <FormLabel htmlFor="salary_amount">
+                                        <FormLabel htmlFor="location.city">City</FormLabel>
+                                        <Field
+                                            as={Input}
+                                            id="location.city"
+                                            name="location.city"
+                                            type="text"
+                                            variant="unstyled"
+                                        />
+                                        <FormErrorMessage mt={0} fontSize="md">
+                                            {errors.location?.city}
+                                        </FormErrorMessage>
+                                    </FormControl>
+
+                                    <FormControl
+                                        variant="auth"
+                                        as={GridItem}
+                                        isInvalid={
+                                            !!errors.location?.address && touched.location?.address
+                                        }
+                                    >
+                                        <FormLabel htmlFor="location.address">Address</FormLabel>
+                                        <Field
+                                            as={Input}
+                                            id="location.address"
+                                            name="location.address"
+                                            type="text"
+                                            variant="unstyled"
+                                        />
+                                        <FormErrorMessage mt={0} fontSize="md">
+                                            {errors.location?.address}
+                                        </FormErrorMessage>
+                                    </FormControl>
+
+                                    <FormControl
+                                        variant="auth"
+                                        as={GridItem}
+                                        isInvalid={
+                                            !!errors.location?.zipCode && touched.location?.zipCode
+                                        }
+                                    >
+                                        <FormLabel htmlFor="location.zipCode">ZIP Code</FormLabel>
+                                        <Field
+                                            as={Input}
+                                            id="location.zipCode"
+                                            name="location.zipCode"
+                                            type="text"
+                                            variant="unstyled"
+                                        />
+                                        <FormErrorMessage mt={0} fontSize="md">
+                                            {errors.location?.zipCode}
+                                        </FormErrorMessage>
+                                    </FormControl>
+
+                                    <FormControl
+                                        variant="auth"
+                                        as={GridItem}
+                                        isInvalid={
+                                            !!errors.salaryAmount &&
+                                            touched.salaryAmount
+                                        }
+                                    >
+                                        <FormLabel htmlFor="salaryAmount">
                                             Salary*
                                         </FormLabel>
                                         <Field
                                             as={Input}
-                                            id="salary_amount"
-                                            name="salary_amount"
+                                            id="salaryAmount"
+                                            name="salaryAmount"
                                             type="number"
                                             variant="unstyled"
                                         />
                                         <FormErrorMessage mt={0} fontSize="md">
-                                            {errors.salary_amount}
+                                            {errors.salaryAmount}
                                         </FormErrorMessage>
                                     </FormControl>
 
@@ -399,17 +492,17 @@ export default function CompanyCreateJob() {
                                         variant="auth"
                                         as={GridItem}
                                         isInvalid={
-                                            !!errors.salary_duration &&
-                                            touched.salary_duration
+                                            !!errors.salaryDuration &&
+                                            touched.salaryDuration
                                         }
                                     >
-                                        <FormLabel htmlFor="salary_duration">
+                                        <FormLabel htmlFor="salaryDuration">
                                             Salary Duration*
                                         </FormLabel>
                                         <Field
                                             as={Select}
-                                            id="salary_duration"
-                                            name="salary_duration"
+                                            id="salaryDuration"
+                                            name="salaryDuration"
                                             cursor="pointer"
                                             variant="unstyled"
                                             textTransform="capitalize"
@@ -428,7 +521,7 @@ export default function CompanyCreateJob() {
                                                 ))}
                                         </Field>
                                         <FormErrorMessage mt={0} fontSize="md">
-                                            {errors.salary_duration}
+                                            {errors.salaryDuration}
                                         </FormErrorMessage>
                                     </FormControl>
 
@@ -461,22 +554,22 @@ export default function CompanyCreateJob() {
                                         as={GridItem}
                                         colSpan={2}
                                         isInvalid={
-                                            !!errors.required_skills &&
-                                            touched.required_skills
+                                            !!errors.requiredSkills &&
+                                            touched.requiredSkills
                                         }
                                     >
-                                        <FormLabel htmlFor="required_skills">
+                                        <FormLabel htmlFor="requiredSkills">
                                             Required Skills*
                                         </FormLabel>
                                         <Field
                                             as={Textarea}
-                                            id="required_skills"
-                                            name="required_skills"
+                                            id="requiredSkills"
+                                            name="requiredSkills"
                                             type="text"
                                             variant="unstyled"
                                         />
                                         <FormErrorMessage mt={0} fontSize="md">
-                                            {errors.required_skills}
+                                            {errors.requiredSkills}
                                         </FormErrorMessage>
                                     </FormControl>
 
@@ -505,18 +598,18 @@ export default function CompanyCreateJob() {
                                         variant="auth"
                                         as={GridItem}
                                         colSpan={2}
-                                        isInvalid={!!errors.job_url && touched.job_url}
+                                        isInvalid={!!errors.jobUrl && touched.jobUrl}
                                     >
-                                        <FormLabel htmlFor="job_url">Job URL*</FormLabel>
+                                        <FormLabel htmlFor="jobUrl">Job URL*</FormLabel>
                                         <Field
                                             as={Input}
-                                            id="job_url"
-                                            name="job_url"
+                                            id="jobUrl"
+                                            name="jobUrl"
                                             type="text"
                                             variant="unstyled"
                                         />
                                         <FormErrorMessage mt={0} fontSize="md">
-                                            {errors.job_url}
+                                            {errors.jobUrl}
                                         </FormErrorMessage>
                                     </FormControl>
 

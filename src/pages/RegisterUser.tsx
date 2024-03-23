@@ -81,7 +81,10 @@ export default function RegisterUser() {
             location: {
                 country: values.country,
                 state: "",
-                map_url: "",
+                division: "",
+                city: "",
+                address: "",
+                zipCode: "",
             },
         };
 

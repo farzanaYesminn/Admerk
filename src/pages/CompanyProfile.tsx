@@ -120,14 +120,42 @@ export default function CompanyProfile() {
                                     />
                                 </FormControl>
                                 <FormControl variant="auth" as={GridItem}>
-                                    <FormLabel htmlFor="location.map_url">
-                                        Map URL
-                                    </FormLabel>
+                                    <FormLabel htmlFor="location.division">Division</FormLabel>
                                     <Input
-                                        id="location.map_url"
+                                        id="location.state"
                                         type="text"
                                         variant="unstyled"
-                                        value={companyInfo.location.map_url}
+                                        value={companyInfo.location.division}
+                                        readOnly
+                                    />
+                                </FormControl>
+                                <FormControl variant="auth" as={GridItem}>
+                                    <FormLabel htmlFor="location.city">City</FormLabel>
+                                    <Input
+                                        id="location.state"
+                                        type="text"
+                                        variant="unstyled"
+                                        value={companyInfo.location.city}
+                                        readOnly
+                                    />
+                                </FormControl>
+                                <FormControl variant="auth" as={GridItem}>
+                                    <FormLabel htmlFor="location.address">Address</FormLabel>
+                                    <Input
+                                        id="location.state"
+                                        type="text"
+                                        variant="unstyled"
+                                        value={companyInfo.location.address}
+                                        readOnly
+                                    />
+                                </FormControl>
+                                <FormControl variant="auth" as={GridItem}>
+                                    <FormLabel htmlFor="location.zipCode">ZIP Code</FormLabel>
+                                    <Input
+                                        id="location.state"
+                                        type="text"
+                                        variant="unstyled"
+                                        value={companyInfo.location.zipCode}
                                         readOnly
                                     />
                                 </FormControl>

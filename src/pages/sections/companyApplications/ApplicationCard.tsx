@@ -58,7 +58,7 @@ export default function ApplicationCard({ application }: Props) {
                 </Stack>
                 <Stack w="52%" justify="center" spacing={0}>
                     <Text fontSize="md" color="slate.500" fontWeight={400}>
-                        {job_info.job_title}
+                        {job_info.jobTitle}
                     </Text>
                     <Text
                         fontSize="md"

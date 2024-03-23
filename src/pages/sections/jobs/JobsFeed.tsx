@@ -103,7 +103,7 @@ export default function JobsFeed({ allJobs }: Props) {
                                                 fontWeight={500}
                                                 textTransform="capitalize"
                                             >
-                                                {job.job_type}
+                                                {job.jobType}
                                             </Text>
                                             <Heading
                                                 as={Link}
@@ -117,7 +117,7 @@ export default function JobsFeed({ allJobs }: Props) {
                                                 margin={0}
                                                 noOfLines={2}
                                             >
-                                                {job.job_title}
+                                                {job.jobTitle}
                                             </Heading>
                                         </Stack>
                                         <Stack
@@ -139,9 +139,9 @@ export default function JobsFeed({ allJobs }: Props) {
                                                 fontWeight={400}
                                             >
                                                 <Text as="b" color="slate.700">
-                                                    ${job.salary_amount}
+                                                    ${job.salaryAmount}
                                                 </Text>{" "}
-                                                / {job.salary_duration}
+                                                / {job.salaryDuration}
                                             </Text>
                                         </Stack>
                                         <Stack

@@ -113,7 +113,7 @@ function JobCard({ job }: CardProps) {
                 </Stack>
                 <Stack w="30%" justify="center" spacing={0}>
                     <Text color="pink.500" fontWeight={500} textTransform="capitalize">
-                        {job.job_type}
+                        {job.jobType}
                     </Text>
                     <Heading
                         as={Link}
@@ -127,7 +127,7 @@ function JobCard({ job }: CardProps) {
                         margin={0}
                         noOfLines={2}
                     >
-                        {job.job_title}
+                        {job.jobTitle}
                     </Heading>
                 </Stack>
                 <Stack w="40%" justify="center" spacing={0}>
@@ -136,9 +136,9 @@ function JobCard({ job }: CardProps) {
                     </Text>
                     <Text fontSize="lg" color="slate.500" fontWeight={400}>
                         <Text as="b" color="slate.700">
-                            ${job.salary_amount}
+                            ${job.salaryAmount}
                         </Text>{" "}
-                        / {job.salary_duration}
+                        / {job.salaryDuration}
                     </Text>
                 </Stack>
                 <Stack direction="row" align="center" justify="end" w="20%" spacing={4}>

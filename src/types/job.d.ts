@@ -10,27 +10,27 @@ type Job = {
         social: string;
         website: string;
     };
-    job_type: string;
+    jobType: string;
     posted_on: string;
-    job_title: string;
+    jobTitle: string;
     location: Site;
-    salary_amount: string;
-    salary_duration: string;
+    salaryAmount: string;
+    salaryDuration: string;
     experience: string;
     overview: string;
-    job_description: string;
+    jobDescription: string;
     category: string;
     responsibility: string;
-    required_skills: string;
+    requiredSkills: string;
     benefits: string;
-    job_url: string;
+    jobUrl: string;
 };
 
 type JobSummary = Omit<
     Job,
     | "overview"
-    | "job_description"
+    | "jobDescription"
     | "responsibility"
-    | "required_skills"
+    | "requiredSkills"
     | "benefits"
 >;

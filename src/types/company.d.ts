@@ -2,16 +2,16 @@ type JobCreate = {
     benefits: string;
     category: string;
     experience: string;
-    job_description: string;
-    job_title: string;
-    job_type: string;
-    job_url: string;
+    jobDescription: string;
+    jobTitle: string;
+    jobType: string;
+    jobUrl: string;
     location: Site;
     overview: string;
-    required_skills: string;
+    requiredSkills: string;
     responsibility: string;
-    salary_amount: string;
-    salary_duration: string;
+    salaryAmount: string;
+    salaryDuration: string;
 };
 
 type CompanyInfo = {
@@ -29,8 +29,11 @@ type CompanyInfo = {
         id: number;
         data_id: string;
         country: string;
-        map_url?: string;
         state?: string;
+        division: string;
+        city: string;
+        address: string;
+        zipCode: string;
     };
     website: string;
 };

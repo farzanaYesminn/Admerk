@@ -32,8 +32,11 @@ export default function RegisterCompany() {
         website: "",
         location: {
             country: "",
-            map_url: "",
             state: "",
+            division: "",
+            city: "",
+            address: "",
+            zipCode: "",
         },
         social: {
             facebook: "",
@@ -58,8 +61,11 @@ export default function RegisterCompany() {
             .required("Website is required"),
         location: Yup.object().shape({
             country: Yup.string().required("Country is required"),
-            map_url: Yup.string().url("Invalid Map URL"),
             state: Yup.string().required("State is required"),
+            division: Yup.string().required("Division is required"),
+            city: Yup.string().required("City is required"),
+            address: Yup.string().required("Address is required"),
+            zipCode: Yup.string().required("ZIP Code is required"),
         }),
         password: Yup.string()
             .min(8, "Password must be at least 8 characters")
@@ -240,19 +246,79 @@ export default function RegisterCompany() {
                             variant="auth"
                             as={GridItem}
                             isInvalid={
-                                !!errors.location?.map_url && touched.location?.map_url
+                                !!errors.location?.division && touched.location?.division
                             }
                         >
-                            <FormLabel htmlFor="location.map_url">Map URL</FormLabel>
+                            <FormLabel htmlFor="location.division">Division</FormLabel>
                             <Field
                                 as={Input}
-                                id="location.map_url"
-                                name="location.map_url"
+                                id="location.division"
+                                name="location.division"
                                 type="text"
                                 variant="unstyled"
                             />
                             <FormErrorMessage mt={0} fontSize="md">
-                                {errors.location?.map_url}
+                                {errors.location?.division}
+                            </FormErrorMessage>
+                        </FormControl>
+
+                        <FormControl
+                            variant="auth"
+                            as={GridItem}
+                            isInvalid={
+                                !!errors.location?.city && touched.location?.city
+                            }
+                        >
+                            <FormLabel htmlFor="location.city">City</FormLabel>
+                            <Field
+                                as={Input}
+                                id="location.city"
+                                name="location.city"
+                                type="text"
+                                variant="unstyled"
+                            />
+                            <FormErrorMessage mt={0} fontSize="md">
+                                {errors.location?.city}
+                            </FormErrorMessage>
+                        </FormControl>
+
+                        <FormControl
+                            variant="auth"
+                            as={GridItem}
+                            isInvalid={
+                                !!errors.location?.address && touched.location?.address
+                            }
+                        >
+                            <FormLabel htmlFor="location.address">Address</FormLabel>
+                            <Field
+                                as={Input}
+                                id="location.address"
+                                name="location.address"
+                                type="text"
+                                variant="unstyled"
+                            />
+                            <FormErrorMessage mt={0} fontSize="md">
+                                {errors.location?.address}
+                            </FormErrorMessage>
+                        </FormControl>
+
+                        <FormControl
+                            variant="auth"
+                            as={GridItem}
+                            isInvalid={
+                                !!errors.location?.zipCode && touched.location?.zipCode
+                            }
+                        >
+                            <FormLabel htmlFor="location.zipCode">ZIP Code</FormLabel>
+                            <Field
+                                as={Input}
+                                id="location.zipCode"
+                                name="location.zipCode"
+                                type="text"
+                                variant="unstyled"
+                            />
+                            <FormErrorMessage mt={0} fontSize="md">
+                                {errors.location?.zipCode}
                             </FormErrorMessage>
                         </FormControl>
                         <FormControl

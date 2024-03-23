@@ -43,7 +43,7 @@ export default function ApplicationCard({ job }: Props) {
                         margin={0}
                         noOfLines={2}
                     >
-                        {job_info.job_title}
+                        {job_info.jobTitle}
                     </Heading>
                     <Text
                         fontSize="md"
@@ -57,9 +57,9 @@ export default function ApplicationCard({ job }: Props) {
                 <Stack w="52%" justify="center" spacing={0}>
                     <Text fontSize="md" color="slate.500" fontWeight={400}>
                         <Text as="b" color="slate.500">
-                            ${job_info.salary_amount}
+                            ${job_info.salaryAmount}
                         </Text>{" "}
-                        / {job_info.salary_duration}
+                        / {job_info.salaryDuration}
                     </Text>
                     <Text
                         fontSize="md"

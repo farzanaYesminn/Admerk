@@ -115,7 +115,7 @@ export default function JobDetails() {
                                         fontWeight={500}
                                         color="slate.900"
                                     >
-                                        {job.job_title}
+                                        {job.jobTitle}
                                     </Heading>
                                     <Stack mt={4} direction="row">
                                         {/* {job.company.socials.map(
@@ -149,13 +149,13 @@ export default function JobDetails() {
                                             {job.overview}
                                         </JobDetail>
                                         <JobDetail id={2} title="Job Description">
-                                            {job.job_description}
+                                            {job.jobDescription}
                                         </JobDetail>
                                         <JobDetail id={3} title="Responsibility">
                                             {job.responsibility}
                                         </JobDetail>
                                         <JobDetail id={4} title="Required Skills:">
-                                            {job.required_skills}
+                                            {job.requiredSkills}
                                         </JobDetail>
                                         <JobDetail id={5} title="Benefits:">
                                             {job.benefits}
@@ -204,7 +204,7 @@ export default function JobDetails() {
                                         <Stack spacing={4}>
                                             <CompanyDetail
                                                 title="Salary"
-                                                subtitle={`$${job.salary_amount} / ${job.salary_duration}`}
+                                                subtitle={`$${job.salaryAmount} / ${job.salaryDuration}`}
                                             />
                                             <CompanyDetail
                                                 title="Expertise"
@@ -216,7 +216,7 @@ export default function JobDetails() {
                                             />
                                             <CompanyDetail
                                                 title="Job Type"
-                                                subtitle={job.job_type}
+                                                subtitle={job.jobType}
                                             />
                                             <CompanyDetail
                                                 title="Date"
