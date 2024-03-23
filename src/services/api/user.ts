@@ -1,15 +1,14 @@
 import axios from "axios";
 import { apiBaseUrl } from "helpers/url";
 
-export const applyJob = async (company_name_id: string) => {
+export const applyJob = async (jobId: string) => {
     try {
-        await axios.post(apiBaseUrl().concat("user/application"), {
-            job_id: company_name_id,
-        });
+        await axios.post(apiBaseUrl().concat("user/application/" + jobId));
     } catch (error) {
         throw new Error("Job Application Failed");
     }
 };
+
 
 export const getAppliedJobs = async () => {
     try {

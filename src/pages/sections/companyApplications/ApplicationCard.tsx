@@ -32,7 +32,7 @@ export default function ApplicationCard({ application }: Props) {
                 <Stack w="30%" justify="center" spacing={0}>
                     <Heading
                         as={Link}
-                        to={`/job-details/${job_info.id}`}
+                        to={`/job-details/${job_info.jobId}`}
                         onClick={() => window.scrollTo(0, 0)}
                         my="auto"
                         fontSize="xl"
