@@ -25,8 +25,8 @@ const setStorageAuthInfo = (authInfo: AuthInfo | null) => {
 
 const setAxiosAuthorizationHeader = (authInfo: AuthInfo | null) => {
     if (authInfo) {
-        const { access_token, token_type } = authInfo;
-        const authHeader = `${token_type} ${access_token}`;
+        const { accessToken, tokenType } = authInfo;
+        const authHeader = `${tokenType} ${accessToken}`;
         axios.defaults.headers.common["Authorization"] = authHeader;
     } else {
         delete axios.defaults.headers.common["Authorization"];

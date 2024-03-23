@@ -11,7 +11,7 @@ export default function ProtectedRoute({ allowedRoles }: Props) {
     if (authLoading) return <Loading />;
 
     if (authInfo) {
-        if (!allowedRoles.includes(authInfo.login_data.role)) {
+        if (!allowedRoles.includes(authInfo.loginData.role)) {
             toast({
                 title: "Not allowed",
                 status: "error",

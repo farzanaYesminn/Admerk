@@ -1,9 +1,10 @@
 type AuthInfo = {
-    access_token: string;
-    token_type: string;
-    login_data: {
+    accessToken: string;
+    tokenType: string;
+    loginData: {
         username: string;
         email: string;
+        name: string;
         role: user;
     };
 };
@@ -14,26 +15,26 @@ type LoginCredentials = {
 };
 
 type UserRegisterCredentials = {
-    first_name: string;
-    last_name: string;
+    firstName: string;
+    lastName: string;
     email: string;
     username: string;
-    birth_date: string;
+    birthDate: string;
     location: {
         country: string;
         state: string;
         map_url: string;
     };
     password: string;
-    is_refugee: boolean;
+    isRefugee: boolean;
 };
 
 type CompanyRegisterCredentials = {
-    c_mail: string;
-    c_name: string;
+    companyMail: string;
+    companyName: string;
     location: {
         country: string;
-        map_url?: string;
+        mapUrl?: string;
         state?: string;
     };
     name: string;
@@ -41,9 +42,9 @@ type CompanyRegisterCredentials = {
     social: {
         facebook?: string;
         instagram?: string;
-        linkedin?: string;
+        linkedIn?: string;
         twitter?: string;
-        whatsapp?: string;
+        whatsApp?: string;
     };
     website: string;
 };

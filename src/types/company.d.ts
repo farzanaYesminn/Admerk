@@ -16,14 +16,14 @@ type JobCreate = {
 
 type CompanyInfo = {
     name: string;
-    c_name: string;
-    c_mail: string;
+    companyName: string;
+    companyMail: string;
     social: {
         facebook?: string;
         instagram?: string;
-        linkedin?: string;
+        linkedIn?: string;
         twitter?: string;
-        whatsapp?: string;
+        whatsApp?: string;
     };
     location: {
         id: number;
@@ -36,6 +36,6 @@ type CompanyInfo = {
 };
 
 type CompanyPasswordCredentials = {
-    new_password: string;
+    newPassword: string;
     password: string;
 };

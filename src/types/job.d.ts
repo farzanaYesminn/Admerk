@@ -3,10 +3,10 @@ type Job = {
     name_id: string;
     company: {
         id: number;
-        c_mail: string;
+        companyMail: string;
         location: string;
         name: string;
-        c_name: string;
+        companyName: string;
         social: string;
         website: string;
     };

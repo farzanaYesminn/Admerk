@@ -55,36 +55,36 @@ export default function UserProfile() {
                         <CardBody px={{ base: 4, xl: 8 }} py={{ base: 4, xl: 8 }}>
                             <SimpleGrid columns={1} spacing={6}>
                                 <FormControl variant="auth" as={GridItem}>
-                                    <FormLabel htmlFor="first_name">First Name</FormLabel>
+                                    <FormLabel htmlFor="firstName">First Name</FormLabel>
                                     <Input
-                                        id="first_name"
-                                        name="first_name"
+                                        id="firstName"
+                                        name="firstName"
                                         type="text"
                                         variant="unstyled"
-                                        value={userInfo.first_name}
+                                        value={userInfo.firstName}
                                         disabled
                                     />
                                 </FormControl>
                                 <FormControl variant="auth" as={GridItem}>
-                                    <FormLabel htmlFor="last_name">Last Name*</FormLabel>
+                                    <FormLabel htmlFor="lastName">Last Name*</FormLabel>
                                     <Input
-                                        id="last_name"
-                                        name="last_name"
+                                        id="lastName"
+                                        name="lastName"
                                         type="text"
                                         variant="unstyled"
-                                        value={userInfo.last_name}
+                                        value={userInfo.lastName}
                                         disabled
                                     />
                                 </FormControl>
                                 <FormControl variant="auth" as={GridItem}>
-                                    <FormLabel htmlFor="birth_date">Birth Date</FormLabel>
+                                    <FormLabel htmlFor="birthDate">Birth Date</FormLabel>
                                     <Input
-                                        id="birth_date"
-                                        name="birth_date"
+                                        id="birthDate"
+                                        name="birthDate"
                                         type="text"
                                         variant="unstyled"
                                         value={new Date(
-                                            userInfo.birth_date
+                                            userInfo.birthDate
                                         ).toLocaleDateString()}
                                         disabled
                                     />
@@ -128,7 +128,7 @@ export default function UserProfile() {
                                             id="is_refugee"
                                             name="is_refugee"
                                             variant="unstyled"
-                                            checked={userInfo.is_refugee}
+                                            checked={userInfo.isRefugee}
                                         />
                                         <FormLabel htmlFor="is_refugee" cursor="pointer">
                                             I am a refugee*

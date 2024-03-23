@@ -44,10 +44,10 @@ export const registerCompany = async (credentials: CompanyRegisterCredentials) =
 export const checkJwtValidity = async (authInfo: AuthInfo) => {
     if (!authInfo) return false;
 
-    const { access_token, token_type } = authInfo;
-    const { role } = authInfo.login_data;
+    const { accessToken, tokenType } = authInfo;
+    const { role } = authInfo.loginData;
 
-    const authHeader = `${token_type} ${access_token}`;
+    const authHeader = `${tokenType} ${accessToken}`;
 
     let response;
     try {

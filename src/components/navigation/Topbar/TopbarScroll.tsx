@@ -49,12 +49,12 @@ export default function TopbarScroll() {
                                     return <Navlink key={route.title} route={route} />;
                                 })}
 
-                            {authInfo?.login_data.role === "user" &&
+                            {authInfo?.loginData.role === "user" &&
                                 userSitemap.map((route: Route) => {
                                     return <Navlink key={route.title} route={route} />;
                                 })}
 
-                            {authInfo?.login_data.role === "company" &&
+                            {authInfo?.loginData.role === "company" &&
                                 companySitemap.map((route: Route) => {
                                     return <Navlink key={route.title} route={route} />;
                                 })}

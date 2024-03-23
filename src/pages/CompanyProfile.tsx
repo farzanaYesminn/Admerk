@@ -54,7 +54,19 @@ export default function CompanyProfile() {
                         <CardBody px={{ base: 4, xl: 8 }} py={{ base: 4, xl: 8 }}>
                             <SimpleGrid columns={1} spacing={6}>
                                 <FormControl variant="auth" as={GridItem}>
-                                    <FormLabel htmlFor="name">Company Name</FormLabel>
+                                    <FormLabel htmlFor="companyName">
+                                        Company Title
+                                    </FormLabel>
+                                    <Input
+                                        id="companyName"
+                                        type="text"
+                                        variant="unstyled"
+                                        value={companyInfo.companyName}
+                                        readOnly
+                                    />
+                                </FormControl>
+                                <FormControl variant="auth" as={GridItem}>
+                                    <FormLabel htmlFor="name">Company Username</FormLabel>
                                     <Input
                                         id="name"
                                         type="text"
@@ -64,24 +76,12 @@ export default function CompanyProfile() {
                                     />
                                 </FormControl>
                                 <FormControl variant="auth" as={GridItem}>
-                                    <FormLabel htmlFor="c_name">
-                                        Company Username*
-                                    </FormLabel>
+                                    <FormLabel htmlFor="companyMail">Company Email</FormLabel>
                                     <Input
-                                        id="c_name"
+                                        id="companyMail"
                                         type="text"
                                         variant="unstyled"
-                                        value={companyInfo.c_name}
-                                        readOnly
-                                    />
-                                </FormControl>
-                                <FormControl variant="auth" as={GridItem}>
-                                    <FormLabel htmlFor="c_mail">Company Email</FormLabel>
-                                    <Input
-                                        id="c_mail"
-                                        type="text"
-                                        variant="unstyled"
-                                        value={companyInfo.c_mail}
+                                        value={companyInfo.companyMail}
                                         readOnly
                                     />
                                 </FormControl>
@@ -156,14 +156,14 @@ export default function CompanyProfile() {
                                     />
                                 </FormControl>
                                 <FormControl variant="auth" as={GridItem}>
-                                    <FormLabel htmlFor="social.linkedin">
+                                    <FormLabel htmlFor="social.linkedIn">
                                         Linkedin
                                     </FormLabel>
                                     <Input
-                                        id="social.linkedin"
+                                        id="social.linkedIn"
                                         type="text"
                                         variant="unstyled"
-                                        value={companyInfo.social.linkedin}
+                                        value={companyInfo.social.linkedIn}
                                         readOnly
                                     />
                                 </FormControl>
@@ -180,14 +180,14 @@ export default function CompanyProfile() {
                                     />
                                 </FormControl>
                                 <FormControl variant="auth" as={GridItem}>
-                                    <FormLabel htmlFor="social.whatsapp">
+                                    <FormLabel htmlFor="social.whatsApp">
                                         Whatsapp
                                     </FormLabel>
                                     <Input
-                                        id="social.whatsapp"
+                                        id="social.whatsApp"
                                         type="text"
                                         variant="unstyled"
-                                        value={companyInfo.social.whatsapp}
+                                        value={companyInfo.social.whatsApp}
                                         readOnly
                                     />
                                 </FormControl>

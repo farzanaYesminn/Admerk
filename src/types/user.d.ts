@@ -1,16 +1,16 @@
 type UserPasswordCredentials = {
-    new_password: string;
+    newPassword: string;
     password: string;
 };
 
 type UserInfo = {
-    first_name: string;
-    last_name: string;
-    birth_date: string;
+    firstName: string;
+    lastName: string;
+    birthDate: string;
     username: string;
     email: string;
     location: Site;
-    is_refugee: boolean;
+    isRefugee: boolean;
 };
 
 type Application = {

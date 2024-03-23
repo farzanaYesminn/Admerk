@@ -23,14 +23,14 @@ export default function UserSettings() {
 
     const initialValues = {
         password: "",
-        new_password: "",
+        newPassword: "",
     };
 
     const validationSchema = Yup.object().shape({
         password: Yup.string()
             .required("Password is required")
             .min(8, "Password must be at least 8 characters long"),
-        new_password: Yup.string()
+        newPassword: Yup.string()
             .required("Password is required")
             .min(8, "Password must be at least 8 characters long"),
     });
@@ -113,22 +113,22 @@ export default function UserSettings() {
                                             variant="auth"
                                             as={GridItem}
                                             isInvalid={
-                                                !!errors.new_password &&
-                                                touched.new_password
+                                                !!errors.newPassword &&
+                                                touched.newPassword
                                             }
                                         >
-                                            <FormLabel htmlFor="new_password">
+                                            <FormLabel htmlFor="newPassword">
                                                 New Password*
                                             </FormLabel>
                                             <Field
                                                 as={Input}
-                                                id="new_password"
-                                                name="new_password"
+                                                id="newPassword"
+                                                name="newPassword"
                                                 type="password"
                                                 variant="unstyled"
                                             />
                                             <FormErrorMessage mt={0} fontSize="md">
-                                                {errors.new_password}
+                                                {errors.newPassword}
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem>

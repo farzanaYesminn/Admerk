@@ -36,9 +36,9 @@ export default function RegisterUser() {
     const toast = useToast();
 
     const initialValues = {
-        first_name: "",
-        last_name: "",
-        birth_date: null,
+        firstName: "",
+        lastName: "",
+        birthDate: null,
         username: "",
         password: "",
         confirm_password: "",
@@ -49,9 +49,9 @@ export default function RegisterUser() {
     };
 
     const validationSchema = Yup.object().shape({
-        first_name: Yup.string().required("First name is required"),
-        last_name: Yup.string().required("Last name is required"),
-        birth_date: Yup.date()
+        firstName: Yup.string().required("First name is required"),
+        lastName: Yup.string().required("Last name is required"),
+        birthDate: Yup.date()
             .required("Birth date is required")
             .max(new Date(), "Birth date cannot be in the future"),
         username: Yup.string().required("Username is required"),
@@ -77,7 +77,7 @@ export default function RegisterUser() {
 
         const credentials = {
             ...rest,
-            birth_date: convertDateFormatBackend(values.birth_date),
+            birthDate: convertDateFormatBackend(values.birthDate),
             location: {
                 country: values.country,
                 state: "",
@@ -114,52 +114,52 @@ export default function RegisterUser() {
                         <FormControl
                             variant="auth"
                             as={GridItem}
-                            isInvalid={!!errors.first_name && touched.first_name}
+                            isInvalid={!!errors.firstName && touched.firstName}
                         >
-                            <FormLabel htmlFor="first_name">First Name*</FormLabel>
+                            <FormLabel htmlFor="firstName">First Name*</FormLabel>
                             <Field
                                 as={Input}
-                                id="first_name"
-                                name="first_name"
+                                id="firstName"
+                                name="firstName"
                                 type="text"
                                 variant="unstyled"
                             />
                             <FormErrorMessage mt={0} fontSize="md">
-                                {errors.first_name}
+                                {errors.firstName}
                             </FormErrorMessage>
                         </FormControl>
                         <FormControl
                             variant="auth"
                             as={GridItem}
-                            isInvalid={!!errors.last_name && touched.last_name}
+                            isInvalid={!!errors.lastName && touched.lastName}
                         >
-                            <FormLabel htmlFor="last_name">Last Name*</FormLabel>
+                            <FormLabel htmlFor="lastName">Last Name*</FormLabel>
                             <Field
                                 as={Input}
-                                id="last_name"
-                                name="last_name"
+                                id="lastName"
+                                name="lastName"
                                 type="text"
                                 variant="unstyled"
                             />
                             <FormErrorMessage mt={0} fontSize="md">
-                                {errors.last_name}
+                                {errors.lastName}
                             </FormErrorMessage>
                         </FormControl>
                         <FormControl
                             variant="auth"
                             as={GridItem}
-                            isInvalid={!!errors.birth_date && touched.birth_date}
+                            isInvalid={!!errors.birthDate && touched.birthDate}
                         >
-                            <FormLabel htmlFor="birth_date">Birth Date*</FormLabel>
+                            <FormLabel htmlFor="birthDate">Birth Date*</FormLabel>
                             <Field
                                 as={Input}
-                                id="birth_date"
-                                name="birth_date"
+                                id="birthDate"
+                                name="birthDate"
                                 type="date"
                                 variant="unstyled"
                             />
                             <FormErrorMessage mt={0} fontSize="md">
-                                {errors.birth_date}
+                                {errors.birthDate}
                             </FormErrorMessage>
                         </FormControl>
                         <FormControl

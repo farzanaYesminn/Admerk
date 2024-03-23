@@ -25,9 +25,9 @@ export default function RegisterCompany() {
     const toast = useToast();
 
     const initialValues = {
-        c_name: "",
+        companyName: "",
         name: "",
-        c_mail: "",
+        companyMail: "",
         password: "",
         website: "",
         location: {
@@ -38,18 +38,18 @@ export default function RegisterCompany() {
         social: {
             facebook: "",
             instagram: "",
-            linkedin: "",
+            linkedIn: "",
             twitter: "",
-            whatsapp: "",
+            whatsApp: "",
         },
         confirm_password: "",
         terms: false,
     };
 
     const validationSchema = Yup.object().shape({
-        c_name: Yup.string().required("Company name is required"),
-        name: Yup.string().required("Name is required"),
-        c_mail: Yup.string().email("Invalid email address").required("Email is required"),
+        companyName: Yup.string().required("Company Title is required"),
+        name: Yup.string().required("Company Username is required"),
+        companyMail: Yup.string().email("Invalid email address").required("Email is required"),
         website: Yup.string()
             .matches(
                 /^(?=.{4,2048}$)((http|https):\/\/)?(www.)?(?!.*(http|https|www.))[a-zA-Z0-9_-]{1,63}(\.[a-zA-Z]{1,63}){1,5}(\/)?.([\w\?[a-zA-Z-_%\/@?]+)*([^\/\w\?[a-zA-Z0-9_-]+=\w+(&[a-zA-Z0-9_]+=\w+)*)?$/,
@@ -76,7 +76,7 @@ export default function RegisterCompany() {
                 /^(?=.{4,2048}$)((http|https):\/\/)?(www.)?(?!.*(http|https|www.))(instagram\.com\/[a-zA-Z0-9_-]{1,63})(\/)?.*$/,
                 "Website should be a valid URL"
             ),
-            linkedin: Yup.string().matches(
+            linkedIn: Yup.string().matches(
                 /^(?=.{4,2048}$)((http|https):\/\/)?(www.)?(?!.*(http|https|www.))(linkedin\.com\/[a-zA-Z0-9_-]{1,63})(\/)?.*$/,
                 "Website should be a valid URL"
             ),
@@ -84,7 +84,7 @@ export default function RegisterCompany() {
                 /^(?=.{4,2048}$)((http|https):\/\/)?(www.)?(?!.*(http|https|www.))(twitter\.com\/[a-zA-Z0-9_-]{1,63})(\/)?.*$/,
                 "Website should be a valid URL"
             ),
-            whatsapp: Yup.string().matches(
+            whatsApp: Yup.string().matches(
                 /^(?=.{4,2048}$)((http|https):\/\/)?(www.)?(?!.*(http|https|www.))(whatsapp\.com\/[a-zA-Z0-9_-]{1,63})(\/)?.*$/,
                 "Website should be a valid URL"
             ),
@@ -128,9 +128,27 @@ export default function RegisterCompany() {
                         <FormControl
                             variant="auth"
                             as={GridItem}
+                            isInvalid={!!errors.companyName && touched.companyName}
+                        >
+                            <FormLabel htmlFor="companyName">Company Title*</FormLabel>
+                            <Field
+                                as={Input}
+                                id="companyName"
+                                name="companyName"
+                                type="text"
+                                variant="unstyled"
+                            />
+                            <FormErrorMessage mt={0} fontSize="md">
+                                {errors.companyName}
+                            </FormErrorMessage>
+                        </FormControl>
+
+                        <FormControl
+                            variant="auth"
+                            as={GridItem}
                             isInvalid={!!errors.name && touched.name}
                         >
-                            <FormLabel htmlFor="name">Company Title*</FormLabel>
+                            <FormLabel htmlFor="name">Company Username*</FormLabel>
                             <Field
                                 as={Input}
                                 id="name"
@@ -142,38 +160,22 @@ export default function RegisterCompany() {
                                 {errors.name}
                             </FormErrorMessage>
                         </FormControl>
+
                         <FormControl
                             variant="auth"
                             as={GridItem}
-                            isInvalid={!!errors.c_name && touched.c_name}
+                            isInvalid={!!errors.companyMail && touched.companyMail}
                         >
-                            <FormLabel htmlFor="c_name">Company Username*</FormLabel>
+                            <FormLabel htmlFor="companyMail">Email*</FormLabel>
                             <Field
                                 as={Input}
-                                id="c_name"
-                                name="c_name"
+                                id="companyMail"
+                                name="companyMail"
                                 type="text"
                                 variant="unstyled"
                             />
                             <FormErrorMessage mt={0} fontSize="md">
-                                {errors.c_name}
-                            </FormErrorMessage>
-                        </FormControl>
-                        <FormControl
-                            variant="auth"
-                            as={GridItem}
-                            isInvalid={!!errors.c_mail && touched.c_mail}
-                        >
-                            <FormLabel htmlFor="c_mail">Email*</FormLabel>
-                            <Field
-                                as={Input}
-                                id="c_mail"
-                                name="c_mail"
-                                type="text"
-                                variant="unstyled"
-                            />
-                            <FormErrorMessage mt={0} fontSize="md">
-                                {errors.c_mail}
+                                {errors.companyMail}
                             </FormErrorMessage>
                         </FormControl>
                         <FormControl
@@ -334,19 +336,19 @@ export default function RegisterCompany() {
                             variant="auth"
                             as={GridItem}
                             isInvalid={
-                                !!errors.social?.linkedin && touched.social?.linkedin
+                                !!errors.social?.linkedIn && touched.social?.linkedIn
                             }
                         >
-                            <FormLabel htmlFor="social.linkedin">Linkedin</FormLabel>
+                            <FormLabel htmlFor="social.linkedIn">Linkedin</FormLabel>
                             <Field
                                 as={Input}
-                                id="social.linkedin"
-                                name="social.linkedin"
+                                id="social.linkedIn"
+                                name="social.linkedIn"
                                 type="text"
                                 variant="unstyled"
                             />
                             <FormErrorMessage mt={0} fontSize="md">
-                                {errors.social?.linkedin}
+                                {errors.social?.linkedIn}
                             </FormErrorMessage>
                         </FormControl>
                         <FormControl
@@ -372,19 +374,19 @@ export default function RegisterCompany() {
                             variant="auth"
                             as={GridItem}
                             isInvalid={
-                                !!errors.social?.whatsapp && touched.social?.whatsapp
+                                !!errors.social?.whatsApp && touched.social?.whatsApp
                             }
                         >
-                            <FormLabel htmlFor="social.whatsapp">Whatsapp</FormLabel>
+                            <FormLabel htmlFor="social.whatsApp">Whatsapp</FormLabel>
                             <Field
                                 as={Input}
-                                id="social.whatsapp"
-                                name="social.whatsapp"
+                                id="social.whatsApp"
+                                name="social.whatsApp"
                                 type="text"
                                 variant="unstyled"
                             />
                             <FormErrorMessage mt={0} fontSize="md">
-                                {errors.social?.whatsapp}
+                                {errors.social?.whatsApp}
                             </FormErrorMessage>
                         </FormControl>
 

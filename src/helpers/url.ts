@@ -2,13 +2,13 @@ export const apiBaseUrl = () => {
     let url;
     switch (process.env.NODE_ENV) {
         case "development":
-            url = "https://admerk-api-70423f972874.herokuapp.com/";
+            url = "http://localhost:8888/";
             break;
         case "production":
-            url = "https://admerk-api-70423f972874.herokuapp.com/";
+            url = "http://localhost:8888/";
             break;
         default:
-            url = "https://admerk-api-70423f972874.herokuapp.com/";
+            url = "http://localhost:8888/";
     }
 
     return url;

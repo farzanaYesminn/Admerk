@@ -26,7 +26,7 @@ export default function ApplicationCard({ application }: Props) {
                         fontWeight={700}
                         pb={1}
                     >
-                        {user_info.first_name[0]}
+                        {user_info.firstName[0]}
                     </Center>
                 </Stack>
                 <Stack w="30%" justify="center" spacing={0}>
@@ -43,7 +43,7 @@ export default function ApplicationCard({ application }: Props) {
                         noOfLines={2}
                         textTransform="capitalize"
                     >
-                        {user_info.first_name} {user_info.last_name}
+                        {user_info.firstName} {user_info.lastName}
                     </Heading>
                     <Text
                         fontSize="md"

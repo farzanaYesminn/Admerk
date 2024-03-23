@@ -27,7 +27,7 @@ export default function JobsFeed({ allJobs }: Props) {
 
     const applyJobHandler = async (name_id: string) => {
         setLoading(true);
-        if (authInfo?.login_data.role === "user") {
+        if (authInfo?.loginData.role === "user") {
             try {
                 await applyJob(name_id);
                 toast({

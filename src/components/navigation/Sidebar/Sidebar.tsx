@@ -102,12 +102,12 @@ function SidebarContent({ authInfo }: ContentProps) {
                             border="2px"
                             bgColor="white"
                             color="pink.500"
-                            name={authInfo.login_data.username[0]}
+                            name={authInfo.loginData.name[0]}
                         />
                     </Center>
                     <Center>
                         <Text fontSize={{ base: "lg", lg: "xl" }} fontWeight={500}>
-                            {authInfo.login_data.username}
+                            {authInfo.loginData.name}
                         </Text>
                     </Center>
                 </Stack>
@@ -124,7 +124,7 @@ function SidebarContent({ authInfo }: ContentProps) {
                     title="Contact"
                     to="/contact"
                 />
-                {authInfo.login_data.role === "user" && (
+                {authInfo.loginData.role === "user" && (
                     <>
                         <SidebarNavlink
                             icon="radix-icons:component-2"
@@ -133,7 +133,7 @@ function SidebarContent({ authInfo }: ContentProps) {
                         />
                     </>
                 )}
-                {authInfo.login_data.role === "company" && (
+                {authInfo.loginData.role === "company" && (
                     <>
                         <SidebarNavlink
                             icon="radix-icons:component-2"

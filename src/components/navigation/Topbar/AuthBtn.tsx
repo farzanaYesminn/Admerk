@@ -36,16 +36,16 @@ export default function AuthBtn() {
                         border="2px"
                         bgColor="slate.100"
                         color="pink.500"
-                        name={authInfo.login_data.username[0]}
+                        name={authInfo.loginData.name[0]}
                     />
                 </MenuButton>
                 <MenuList>
                     <MenuItem
                         onClick={() => {
-                            if (authInfo.login_data.role === "user") {
+                            if (authInfo.loginData.role === "user") {
                                 navigate("dashboard/user/");
                             }
-                            if (authInfo.login_data.role === "company") {
+                            if (authInfo.loginData.role === "company") {
                                 navigate("dashboard/company/");
                             }
                         }}
@@ -54,10 +54,10 @@ export default function AuthBtn() {
                     </MenuItem>
                     <MenuItem
                         onClick={() => {
-                            if (authInfo.login_data.role === "user") {
+                            if (authInfo.loginData.role === "user") {
                                 navigate("dashboard/user/profile/");
                             }
-                            if (authInfo.login_data.role === "company") {
+                            if (authInfo.loginData.role === "company") {
                                 navigate("dashboard/company/profile/");
                             }
                         }}
