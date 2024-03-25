@@ -1,7 +1,8 @@
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import Home from "pages/Home";
 import JobList from "./pages/JobList";
-import JobDetails, { loader as getJobDetailsProps } from "./pages/JobDetails";
+import JobDetails, { jobsDetailsLoader as getJobDetailsProps } from "./pages/JobDetails";
+import ApplicantDetails, { applicantDetailsLoader as getApplicantsDetailsProps } from "./pages/ApplicantDetails";
 import MainLayout from "./components/layouts/MainLayout";
 import RegisterLayout from "./components/layouts/RegisterLayout";
 import NotFound from "./pages/NotFound";
@@ -34,6 +35,11 @@ export const router = createBrowserRouter(
                     path="job-details/:id"
                     element={<JobDetails />}
                     loader={getJobDetailsProps}
+                />
+                <Route
+                    path="applicant-details/:id"
+                    element={<ApplicantDetails />}
+                    loader={getApplicantsDetailsProps}
                 />
                 <Route path="*" element={<NotFound />} />
             </Route>

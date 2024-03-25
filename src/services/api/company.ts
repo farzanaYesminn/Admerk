@@ -46,3 +46,25 @@ export const getCompanyInfo = async () => {
         throw new Error("Failed to fetch company information");
     }
 };
+
+export const getApplicantInfo = async (userId: number) => {
+    try {
+        const res = await axios.get(apiBaseUrl().concat(`company/application/${userId}`));
+        return res.data;
+    } catch (error) {
+        throw new Error("Failed to fetch applicant information");
+    }
+};
+
+export const respondToApplicant = async (userId: number, response: string) => {
+    try {
+        const res = await axios.post(apiBaseUrl().concat(`company/application/respond/${userId}`), response, {
+            headers: {
+                'Content-Type': 'text/plain'
+            }
+        });
+        return res.data;
+    } catch (error) {
+        throw new Error("Failed to respond to applicant");
+    }
+};

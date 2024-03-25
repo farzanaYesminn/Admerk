@@ -4,6 +4,7 @@ type UserPasswordCredentials = {
 };
 
 type UserInfo = {
+    userId: number;
     firstName: string;
     lastName: string;
     birthDate: string;
@@ -20,4 +21,5 @@ type Application = {
     applied_on: string;
     job_info: Job;
     user_info: UserInfo;
+    application_status: string;
 };

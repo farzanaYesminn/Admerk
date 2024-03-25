@@ -23,8 +23,8 @@ export const registerUser = async (credentials: UserRegisterCredentials) => {
             "Content-Type": "application/json",
         },
     });
-    if (res) return true;
-    return false;
+    return !!res;
+
 };
 
 export const registerCompany = async (credentials: CompanyRegisterCredentials) => {
@@ -37,8 +37,8 @@ export const registerCompany = async (credentials: CompanyRegisterCredentials) =
             },
         }
     );
-    if (res) return true;
-    return false;
+    return !!res;
+
 };
 
 export const checkJwtValidity = async (authInfo: AuthInfo) => {
@@ -76,8 +76,8 @@ export const checkJwtValidity = async (authInfo: AuthInfo) => {
         response = null;
     }
 
-    if (!response) return false;
-    return true;
+    return response;
+
 };
 
 export const checkUniqueUsername = async (username: string) => {

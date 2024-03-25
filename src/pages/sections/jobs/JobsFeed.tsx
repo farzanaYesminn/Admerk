@@ -107,7 +107,7 @@ export default function JobsFeed({ allJobs }: Props) {
                                             </Text>
                                             <Heading
                                                 as={Link}
-                                                to={`/job-details/${job.id}`}
+                                                to={`/job-details/${job.jobId}`}
                                                 onClick={() => window.scrollTo(0, 0)}
                                                 my="auto"
                                                 fontSize="xl"
@@ -167,9 +167,8 @@ export default function JobsFeed({ allJobs }: Props) {
                                                 rounded="full"
                                                 fontSize="sm"
                                                 disabled={loading}
-                                                onClick={() =>
-                                                    applyJobHandler(job.jobId)
-                                                }
+                                                onClick={() => applyJobHandler(job.jobId)}
+                                                style={{ display: authInfo?.loginData.role === "user" && authInfo?.loginData.isRefugee ? "block" : "none" }}
                                             >
                                                 Apply
                                             </Button>

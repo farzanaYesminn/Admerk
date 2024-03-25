@@ -59,11 +59,11 @@ export default function UserDashboard() {
                     <CardBody px={{ base: 4, xl: 8 }} py={{ base: 4, xl: 8 }}>
                         <Stack spacing={{ base: 6, xl: 8 }}>
                             {appliedJobs &&
-                                appliedJobs.map((job) => {
+                                appliedJobs.map((application) => {
                                     return (
                                         <ApplicationCard
-                                            key={job.application_id}
-                                            job={job}
+                                            key={application.application_id}
+                                            application={application}
                                         />
                                     );
                                 })}

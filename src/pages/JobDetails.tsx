@@ -13,13 +13,14 @@ import {
     Text,
     useToast,
 } from "@chakra-ui/react";
-import { Icon } from "@iconify/react/dist/iconify.js";
-import { ReactNode } from "react";
-import { Helmet } from "react-helmet-async";
-import { useLoaderData } from "react-router-dom";
-import { getJobInfo } from "services/api/jobs";
+import {Icon} from "@iconify/react/dist/iconify.js";
+import {ReactNode} from "react";
+import {Helmet} from "react-helmet-async";
+import {useLoaderData} from "react-router-dom";
+import {getJobInfo} from "services/api/jobs";
 import CallToAction from "./sections/CallToAction";
-import { applyJob } from "services/api/user";
+import {applyJob} from "services/api/user";
+import {useAuth} from "../lib/context/AuthProvider";
 
 function formatDate(inputDateString: string) {
     const inputDate = new Date(inputDateString);
@@ -42,11 +43,11 @@ function formatDate(inputDateString: string) {
         "December",
     ];
     const formattedMonth = monthNames[month];
-    const formattedDateString = `${formattedMonth} ${day}, ${year}`;
-    return formattedDateString;
+    return `${formattedMonth} ${day}, ${year}`;
 }
 
 export default function JobDetails() {
+    const { authInfo } = useAuth();
     const job = useLoaderData() as Job;
     const toast = useToast();
 
@@ -212,7 +213,7 @@ export default function JobDetails() {
                                             />
                                             <CompanyDetail
                                                 title="Location"
-                                                subtitle={`${job.location.state}/${job.location.country}`}
+                                                subtitle={`${job.location.state} / ${job.location.country}`}
                                             />
                                             <CompanyDetail
                                                 title="Job Type"
@@ -228,6 +229,7 @@ export default function JobDetails() {
                                             variant="primary"
                                             rounded="full"
                                             onClick={applyJobHandler}
+                                            style={{ display: authInfo?.loginData.role === "user" && authInfo?.loginData.isRefugee ? "block" : "none" }}
                                         >
                                             Apply Now
                                         </Button>
@@ -320,9 +322,8 @@ function CompanyDetail({ title, subtitle }: DetailProps) {
 }
 
 // loader data
-export const loader = async ({ params }: any) => {
+export const jobsDetailsLoader = async ({ params }: any) => {
     const { id } = params;
     if (!id) return null;
-    const job = await getJobInfo(parseInt(id));
-    return job;
+    return await getJobInfo(parseInt(id));
 };

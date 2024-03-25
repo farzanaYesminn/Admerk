@@ -43,6 +43,7 @@ export default function RegisterUser() {
         confirmPassword: "",
         email: "",
         country: "",
+        state: "",
         isRefugee: false,
         terms: false,
     };
@@ -62,6 +63,7 @@ export default function RegisterUser() {
             .required("Confirm Password is required"),
         email: Yup.string().email("Invalid email address").required("Email is required"),
         country: Yup.string().required("Country is required"),
+        state: Yup.string().required("State is required"),
         isRefugee: Yup.boolean().required("Please specify if you are a refugee or not"),
         terms: Yup.boolean().oneOf([true], "You must agree to our terms & conditions"),
     });
@@ -72,6 +74,7 @@ export default function RegisterUser() {
                 confirmPassword: string;
                 terms: string;
                 country: string;
+                state: string;
                 isRefugee: boolean;
             };
 
@@ -80,7 +83,7 @@ export default function RegisterUser() {
             birthDate: convertDateFormatBackend(values.birthDate),
             location: {
                 country: values.country,
-                state: "",
+                state: values.state,
                 division: "",
                 city: "",
                 address: "",
@@ -252,6 +255,23 @@ export default function RegisterUser() {
                             />
                             <FormErrorMessage mt={0} fontSize="md">
                                 {errors.country}
+                            </FormErrorMessage>
+                        </FormControl>
+                        <FormControl
+                            variant="auth"
+                            as={GridItem}
+                            isInvalid={!!errors.state && touched.state}
+                        >
+                            <FormLabel htmlFor="state">State*</FormLabel>
+                            <Field
+                                as={Input}
+                                id="state"
+                                name="state"
+                                type="text"
+                                variant="unstyled"
+                            />
+                            <FormErrorMessage mt={0} fontSize="md">
+                                {errors.state}
                             </FormErrorMessage>
                         </FormControl>
                         <FormControl

@@ -11,6 +11,20 @@ export default function ApplicationCard({ application }: Props) {
     const apply_date = new Date(application.applied_on).toLocaleDateString();
     const apply_time = new Date(application.applied_on).toLocaleTimeString();
     const applied_on = apply_date + " " + apply_time;
+    const application_status = application.application_status;
+
+    let statusColor;
+    switch (application_status) {
+        case 'ACCEPTED':
+            statusColor = 'green.500';
+            break;
+        case 'REJECTED':
+            statusColor = 'red.500';
+            break;
+        default:
+            statusColor = 'slate.400';
+            break;
+    }
 
     return (
         <Stack justify="center">
@@ -32,12 +46,12 @@ export default function ApplicationCard({ application }: Props) {
                 <Stack w="30%" justify="center" spacing={0}>
                     <Heading
                         as={Link}
-                        to={`/job-details/${job_info.jobId}`}
+                        to={`/applicant-details/${user_info.userId}`}
                         onClick={() => window.scrollTo(0, 0)}
                         my="auto"
                         fontSize="xl"
                         fontWeight={600}
-                        color="slate.900"
+                        color={statusColor}
                         lineHeight={1.3}
                         margin={0}
                         noOfLines={2}
@@ -62,9 +76,9 @@ export default function ApplicationCard({ application }: Props) {
                     </Text>
                     <Text
                         fontSize="md"
-                        color="slate.400"
                         fontWeight={500}
                         textTransform="capitalize"
+                        color={statusColor}
                     >
                         Applied on: {applied_on}
                     </Text>

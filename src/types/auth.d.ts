@@ -5,7 +5,8 @@ type AuthInfo = {
         username: string;
         email: string;
         name: string;
-        role: user;
+        role: string;
+        isRefugee: boolean;
     };
 };
 
