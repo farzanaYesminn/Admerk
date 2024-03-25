@@ -10,7 +10,7 @@ import {
     useToast,
 } from "@chakra-ui/react";
 import {Helmet} from "react-helmet-async";
-import {useLoaderData} from "react-router-dom";
+import {useLoaderData, useNavigate} from "react-router-dom";
 import CallToAction from "./sections/CallToAction";
 
 function formatDate(inputDateString: string) {
@@ -40,6 +40,7 @@ function formatDate(inputDateString: string) {
 export default function ApplicantDetails() {
     const applications = useLoaderData() as Application[];
     const toast = useToast();
+    const navigate = useNavigate();
 
     const respondToJob = async (userId: number, response: string) => {
         try {
@@ -49,6 +50,7 @@ export default function ApplicantDetails() {
                 status: "success",
                 duration: 4000,
             });
+            navigate('/dashboard/company/applications');
         } catch (error) {
             toast({
                 title: "Failed to respond to application",
@@ -56,6 +58,17 @@ export default function ApplicantDetails() {
                 duration: 4000,
             });
         }
+    };
+
+    const calculateAge = (birthdate: string) => {
+        const today = new Date();
+        const birthDate = new Date(birthdate);
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const month = today.getMonth() - birthDate.getMonth();
+        if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
     };
 
     return (
@@ -96,6 +109,10 @@ export default function ApplicantDetails() {
                                         <ApplicantDetail
                                             title="Location"
                                             subtitle={`${application.user_info.location.state} / ${application.user_info.location.country}`}
+                                        />
+                                        <ApplicantDetail
+                                            title="Age"
+                                            subtitle={calculateAge(application.user_info.birthDate).toString()}
                                         />
                                         <ApplicantDetail
                                             title="Refugee Number"
@@ -150,7 +167,6 @@ function ApplicantDetail({ title, subtitle }: DetailProps) {
                 fontSize="lg"
                 fontWeight={500}
                 color="slate.900"
-                textTransform="capitalize"
             >
                 {subtitle}
             </Text>
