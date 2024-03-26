@@ -27,6 +27,7 @@ interface UserInfo {
     refugeeNumber: string;
     birthDate: string;
     email: string;
+    contactNumber: string;
     location: {
         country: string;
         division: string;
@@ -220,6 +221,23 @@ export default function UserProfile() {
                                         variant="unstyled"
                                         value={userInfo.email}
                                         disabled
+                                    />
+                                </FormControl>
+                                <FormControl variant="auth" as={GridItem}>
+                                    <FormLabel htmlFor="contactNumber">Contact Number</FormLabel>
+                                    <Input
+                                        id="contactNumber"
+                                        name="contactNumber"
+                                        type="text"
+                                        variant="unstyled"
+                                        value={editing ? userInfo.contactNumber : userInfo.contactNumber}
+                                        onChange={(e) =>
+                                            setUserInfo({
+                                                ...userInfo,
+                                                contactNumber: e.target.value,
+                                            })
+                                        }
+                                        disabled={!editing}
                                     />
                                 </FormControl>
                                 <FormControl variant="auth" as={GridItem}>

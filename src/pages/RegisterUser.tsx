@@ -42,6 +42,7 @@ export default function RegisterUser() {
         password: "",
         confirmPassword: "",
         email: "",
+        contactNumber: "",
         country: "",
         state: "",
         isRefugee: false,
@@ -57,10 +58,11 @@ export default function RegisterUser() {
         username: Yup.string().required("Username is required"),
         password: Yup.string()
             .required("Password is required")
-            .min(8, "Password must be at least 8 characters long"),
+            .min(4, "Password must be at least 4 characters long"),
         confirmPassword: Yup.string()
             .oneOf([Yup.ref("password"), undefined], "Passwords must match")
             .required("Confirm Password is required"),
+        contactNumber: Yup.string().required("Contact Number is required"),
         email: Yup.string().email("Invalid email address").required("Email is required"),
         country: Yup.string().required("Country is required"),
         state: Yup.string().required("State is required"),
@@ -200,6 +202,23 @@ export default function RegisterUser() {
                             />
                             <FormErrorMessage mt={0} fontSize="md">
                                 {errors.email}
+                            </FormErrorMessage>
+                        </FormControl>
+                        <FormControl
+                            variant="auth"
+                            as={GridItem}
+                            isInvalid={!!errors.contactNumber && touched.contactNumber}
+                        >
+                            <FormLabel htmlFor="contactNumber">Contact Number</FormLabel>
+                            <Field
+                                as={Input}
+                                id="contactNumber"
+                                name="contactNumber"
+                                type="text"
+                                variant="unstyled"
+                            />
+                            <FormErrorMessage mt={0} fontSize="md">
+                                {errors.contactNumber}
                             </FormErrorMessage>
                         </FormControl>
                         <FormControl

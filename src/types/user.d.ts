@@ -13,6 +13,7 @@ type UserInfo = {
     location: Site;
     isRefugee: boolean;
     refugeeNumber: string;
+    contactNumber: string;
 };
 
 type Application = {

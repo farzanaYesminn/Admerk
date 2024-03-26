@@ -119,7 +119,7 @@ export default function JobDetails() {
                                             }}
                                             color="slate.500"
                                         >
-                                            {job.posted_on} by,{" "}
+                                            {formatDate(job.postedOn)} by,{" "}
                                             <Text as="b" color="slate.700">
                                                 {job.company.companyName}
                                             </Text>
@@ -225,7 +225,7 @@ export default function JobDetails() {
                                             />
                                             <CompanyDetail
                                                 title="Date"
-                                                subtitle={formatDate(job.posted_on)}
+                                                subtitle={formatDate(job.postedOn)}
                                             />
                                         </Stack>
                                         <Button

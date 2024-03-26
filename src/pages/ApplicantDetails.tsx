@@ -107,8 +107,12 @@ export default function ApplicantDetails() {
                                             subtitle={application.user_info.email}
                                         />
                                         <ApplicantDetail
+                                            title="Contact Number"
+                                            subtitle={application.user_info.contactNumber}
+                                        />
+                                        <ApplicantDetail
                                             title="Location"
-                                            subtitle={`${application.user_info.location.state} / ${application.user_info.location.country}`}
+                                            subtitle={`${application.user_info.location.state}, ${application.user_info.location.country}`}
                                         />
                                         <ApplicantDetail
                                             title="Age"

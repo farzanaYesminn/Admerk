@@ -11,7 +11,7 @@ type Job = {
         website: string;
     };
     jobType: string;
-    posted_on: string;
+    postedOn: string;
     jobTitle: string;
     location: Site;
     salaryAmount: string;
