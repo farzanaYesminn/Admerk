@@ -46,16 +46,20 @@ export default function ApplicantDetails() {
         try {
             await respondToApplicant(userId, response);
             toast({
-                title: "Application responded successfully",
+                title: "Application Responded",
+                description: "Response has been saved for this application.",
                 status: "success",
                 duration: 4000,
+                isClosable: true,
             });
             navigate('/dashboard/company/applications');
         } catch (error) {
             toast({
-                title: "Failed to respond to application",
+                title: "Failed to Respond Application",
+                description: "Something goes wrong.",
                 status: "error",
                 duration: 4000,
+                isClosable: true,
             });
         }
     };

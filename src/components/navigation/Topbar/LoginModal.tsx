@@ -59,16 +59,20 @@ export default function LoginModal({ isOpen, onClose }: Props) {
                 navigate(from, { replace: true });
                 onClose();
                 toast({
-                    title: "Logged in",
+                    title: "Welcome! You are logged in!",
+                    description: "Please see around AdmerkCorp.",
                     status: "success",
                     duration: 4000,
+                    isClosable: true,
                 });
             }
         } catch (error) {
             toast({
-                title: "Logged in failed",
+                title: "Oops! Your login attempt failed.",
+                description: "Please try again.",
                 status: "error",
                 duration: 4000,
+                isClosable: true,
             });
         }
     };

@@ -73,15 +73,19 @@ export default function JobDetails() {
         try {
             await applyJob(job.jobId);
             toast({
-                title: "Application successful",
+                title: "Application Successful",
+                description: "You have successfully applied to this job.",
                 status: "success",
                 duration: 4000,
+                isClosable: true,
             });
         } catch (error) {
             toast({
-                title: "Application failed",
+                title: "Application Failed",
+                description: "You may have applied to this job already.",
                 status: "error",
                 duration: 4000,
+                isClosable: true,
             });
         }
     };

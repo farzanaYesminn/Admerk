@@ -97,15 +97,19 @@ export default function RegisterUser() {
             await registerUser(credentials);
             navigate("/");
             toast({
-                title: "Account Created",
+                title: "Account Creation Successful",
+                description: "You have successfully created your account.",
                 status: "success",
-                duration: 6000,
+                duration: 4000,
+                isClosable: true,
             });
         } catch (error) {
             toast({
                 title: "Account Creation Failed",
+                description: "Sorry, account can not be created.",
                 status: "error",
-                duration: 6000,
+                duration: 4000,
+                isClosable: true,
             });
         }
     };

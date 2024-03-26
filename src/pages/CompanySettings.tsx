@@ -29,10 +29,10 @@ export default function CompanySettings() {
     const validationSchema = Yup.object().shape({
         password: Yup.string()
             .required("Password is required")
-            .min(8, "Password must be at least 8 characters long"),
+            .min(4, "Password must be at least 8 characters long"),
         newPassword: Yup.string()
             .required("Password is required")
-            .min(8, "Password must be at least 8 characters long"),
+            .min(4, "Password must be at least 8 characters long"),
     });
 
     const handleSubmit = async (values: FormikValues) => {
@@ -40,15 +40,19 @@ export default function CompanySettings() {
         try {
             await changeCompanyPassword(credentials);
             toast({
-                title: "Account Password Changed",
+                title: "Password Changed",
+                description: "You have successfully changed your account password.",
                 status: "success",
                 duration: 4000,
+                isClosable: true,
             });
         } catch (error) {
             toast({
-                title: "Password change failed",
+                title: "Password Change Failed",
+                description: "Your account password can not be changed.",
                 status: "error",
                 duration: 4000,
+                isClosable: true,
             });
         }
     };

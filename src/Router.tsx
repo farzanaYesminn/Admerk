@@ -20,6 +20,7 @@ import CompanyProfile from "./pages/CompanyProfile";
 import CompanySettings from "./pages/CompanySettings";
 import CompanyApplications from "./pages/CompanyApplications";
 import CompanyCreateJob from "./pages/CompanyCreateJob";
+import Contact from "./pages/sections/contact/Contact";
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -42,6 +43,7 @@ export const router = createBrowserRouter(
                     loader={getApplicantsDetailsProps}
                 />
                 <Route path="*" element={<NotFound />} />
+                <Route path="contact" element={<Contact />} />
             </Route>
             <Route path="dashboard" element={<DashboardLayout />}>
                 <Route path="user" element={<ProtectedRoute allowedRoles={["user"]} />}>

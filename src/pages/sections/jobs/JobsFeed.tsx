@@ -25,21 +25,29 @@ export default function JobsFeed({ allJobs }: Props) {
     const [loading, setLoading] = useState<boolean>(false);
     const toast = useToast();
 
+    function formatJobType(jobType: string) {
+        return jobType.replace("_", " ");
+    }
+
     const applyJobHandler = async (jobId: string) => {
         setLoading(true);
         if (authInfo?.loginData.role === "user") {
             try {
                 await applyJob(jobId);
                 toast({
-                    title: "Application successful",
+                    title: "Application Successful",
+                    description: "You have successfully applied to this job.",
                     status: "success",
                     duration: 4000,
+                    isClosable: true,
                 });
             } catch (error) {
                 toast({
-                    title: "Application failed",
+                    title: "Application Failed",
+                    description: "You may have applied to this job already.",
                     status: "error",
                     duration: 4000,
+                    isClosable: true,
                 });
             }
         } else {
@@ -103,7 +111,7 @@ export default function JobsFeed({ allJobs }: Props) {
                                                 fontWeight={500}
                                                 textTransform="capitalize"
                                             >
-                                                {job.jobType}
+                                                {formatJobType(job.jobType)}
                                             </Text>
                                             <Heading
                                                 as={Link}
