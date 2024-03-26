@@ -1,21 +1,18 @@
-import { useState, useEffect } from "react";
+import {useState, useEffect} from "react";
 import {
-    Button,
     Card,
     CardBody,
     CardHeader,
     Center,
     Heading,
-    IconButton,
     SimpleGrid,
     Stack,
     Text,
 } from "@chakra-ui/react";
 import IntroCard from "./sections/userDashboard/IntroCard";
-import { Helmet } from "react-helmet-async";
-import { getAllJobApplications, getAllPostedJobs } from "services/api/company";
-import { Link } from "react-router-dom";
-import { BsBookmarkPlus } from "react-icons/bs";
+import {Helmet} from "react-helmet-async";
+import {getAllJobApplications, getAllPostedJobs} from "services/api/company";
+import {Link} from "react-router-dom";
 import LoadingComp from "components/helpers/LoadingComp";
 
 export default function CompanyDashboard() {
@@ -34,19 +31,19 @@ export default function CompanyDashboard() {
         })();
     }, []);
 
-    if (loading) return <LoadingComp />;
+    if (loading) return <LoadingComp/>;
 
     return (
         <>
             <Helmet>
                 <title>Admerk - Dashboard</title>
             </Helmet>
-            <Stack px={{ base: 4, xl: 12 }} py={{ base: 4, xl: 8 }}>
-                <Heading fontSize={{ base: "2xl", xl: "3xl" }} fontWeight={500}>
+            <Stack px={{base: 4, xl: 12}} py={{base: 4, xl: 8}}>
+                <Heading fontSize={{base: "2xl", xl: "3xl"}} fontWeight={500}>
                     Dashboard
                 </Heading>
                 <SimpleGrid
-                    mt={{ base: 2, xl: 6 }}
+                    mt={{base: 2, xl: 6}}
                     gridTemplateColumns={
                         "repeat(auto-fit, minmax(min(12rem, 100%), 1fr))"
                     }
@@ -66,7 +63,7 @@ export default function CompanyDashboard() {
                         />
                     )}
                 </SimpleGrid>
-                <Card rounded={{ base: "xl", xl: "3xl" }} mt={{ base: 8, xl: 10 }}>
+                <Card rounded={{base: "xl", xl: "3xl"}} mt={{base: 8, xl: 10}}>
                     <CardHeader borderBottom="1px" borderColor="slate.200">
                         <Heading
                             fontSize="xl"
@@ -77,11 +74,11 @@ export default function CompanyDashboard() {
                             Posted Jobs
                         </Heading>
                     </CardHeader>
-                    <CardBody px={{ base: 4, xl: 8 }} py={{ base: 4, xl: 8 }}>
-                        <Stack spacing={{ base: 6, xl: 8 }}>
+                    <CardBody px={{base: 4, xl: 8}} py={{base: 4, xl: 8}}>
+                        <Stack spacing={{base: 6, xl: 8}}>
                             {postedJobs &&
                                 postedJobs.map((job) => {
-                                    return <JobCard key={job.jobId} job={job} />;
+                                    return <JobCard key={job.jobId} job={job}/>;
                                 })}
                         </Stack>
                     </CardBody>
@@ -93,7 +90,7 @@ export default function CompanyDashboard() {
 
 type CardProps = { job: Job };
 
-function JobCard({ job }: CardProps) {
+function JobCard({job}: CardProps) {
     return (
         <Stack justify="center">
             <Stack direction="row" spacing={6}>

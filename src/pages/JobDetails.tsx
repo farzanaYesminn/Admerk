@@ -14,7 +14,7 @@ import {
     useToast,
 } from "@chakra-ui/react";
 import {Icon} from "@iconify/react/dist/iconify.js";
-import {ReactNode} from "react";
+import {ReactNode, useState} from "react";
 import {Helmet} from "react-helmet-async";
 import {useLoaderData} from "react-router-dom";
 import {getJobInfo} from "services/api/jobs";
@@ -47,9 +47,27 @@ function formatDate(inputDateString: string) {
 }
 
 export default function JobDetails() {
+    const [copied, setCopied] = useState(false);
     const { authInfo } = useAuth();
     const job = useLoaderData() as Job;
     const toast = useToast();
+
+    function formatJobType(jobType: string) {
+        return jobType.replace("_", " ");
+    }
+
+    const copyUrlToClipboard = async () => {
+        const url = window.location.href;
+        try {
+            await navigator.clipboard.writeText(url);
+            setCopied(true);
+            setTimeout(() => {
+                setCopied(false);
+            }, 3000);
+        } catch (error) {
+            console.error('Failed to copy URL to clipboard:', error);
+        }
+    };
 
     const applyJobHandler = async () => {
         try {
@@ -103,7 +121,7 @@ export default function JobDetails() {
                                         >
                                             {job.posted_on} by,{" "}
                                             <Text as="b" color="slate.700">
-                                                {job.company.name}
+                                                {job.company.companyName}
                                             </Text>
                                         </Text>
                                     </Stack>
@@ -119,16 +137,6 @@ export default function JobDetails() {
                                         {job.jobTitle}
                                     </Heading>
                                     <Stack mt={4} direction="row">
-                                        {/* {job.company.socials.map(
-                                            (social, idx) => {
-                                                return (
-                                                    <SocialBtn
-                                                        key={`social-${idx}`}
-                                                        social={social}
-                                                    />
-                                                );
-                                            }
-                                        )} */}
                                         <Button
                                             bgColor="slate.200"
                                             color="slate.800"
@@ -138,8 +146,9 @@ export default function JobDetails() {
                                                     <Icon icon="solar:link-bold" />
                                                 </Text>
                                             }
+                                            onClick={copyUrlToClipboard}
                                         >
-                                            Copy
+                                            {copied ? "Copied URL" : "Copy URL"}
                                         </Button>
                                     </Stack>
                                     <Stack
@@ -183,7 +192,7 @@ export default function JobDetails() {
                                                 h={12}
                                                 rounded="full"
                                             >
-                                                {job.company.name[0]}
+                                                {job.company.companyName[0]}
                                             </Center>
                                         </Center>
                                         <Center mt={2}>
@@ -191,13 +200,8 @@ export default function JobDetails() {
                                                 fontSize={{ base: "xl" }}
                                                 fontWeight={400}
                                             >
-                                                {job.company.name}
+                                                {job.company.companyName}
                                             </Heading>
-                                        </Center>
-                                        <Center mt={4}>
-                                            <Button variant="primary" rounded="full">
-                                                Visit Website
-                                            </Button>
                                         </Center>
                                         <Box py={8}>
                                             <Divider borderColor="slate.300" />
@@ -213,11 +217,11 @@ export default function JobDetails() {
                                             />
                                             <CompanyDetail
                                                 title="Location"
-                                                subtitle={`${job.location.state} / ${job.location.country}`}
+                                                subtitle={`${job.location.state}, ${job.location.country}`}
                                             />
                                             <CompanyDetail
                                                 title="Job Type"
-                                                subtitle={job.jobType}
+                                                subtitle={formatJobType(job.jobType)}
                                             />
                                             <CompanyDetail
                                                 title="Date"

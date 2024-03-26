@@ -15,6 +15,7 @@ type JobCreate = {
 };
 
 type CompanyInfo = {
+    companyId: number;
     name: string;
     companyName: string;
     companyMail: string;
@@ -25,16 +26,7 @@ type CompanyInfo = {
         twitter?: string;
         whatsApp?: string;
     };
-    location: {
-        id: number;
-        data_id: string;
-        country: string;
-        state: string;
-        division: string;
-        city: string;
-        address: string;
-        zipCode: string;
-    };
+    location: Site;
     website: string;
 };
 

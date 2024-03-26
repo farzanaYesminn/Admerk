@@ -68,3 +68,11 @@ export const respondToApplicant = async (userId: number, response: string) => {
         throw new Error("Failed to respond to applicant");
     }
 };
+
+export const updateCompanyProfile = async (companyId: number, companyInfo: CompanyInfo) => {
+    try {
+        await axios.put(apiBaseUrl().concat(`company/account/${companyId}`), companyInfo);
+    } catch (error) {
+        throw new Error('Failed to update company profile');
+    }
+};
