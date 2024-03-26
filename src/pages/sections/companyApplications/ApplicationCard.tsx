@@ -1,5 +1,4 @@
-import { Center, Heading, IconButton, Stack, Text } from "@chakra-ui/react";
-import { Icon } from "@iconify/react/dist/iconify.js";
+import { Badge, Center, Heading, Stack, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 type Props = {
@@ -8,21 +7,27 @@ type Props = {
 
 export default function ApplicationCard({ application }: Props) {
     const { job_info, user_info } = application;
-    const apply_date = new Date(application.applied_on).toLocaleDateString();
-    const apply_time = new Date(application.applied_on).toLocaleTimeString();
-    const applied_on = apply_date + " " + apply_time;
+    const applied_on = new Date(application.applied_on).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: '2-digit'
+    });
     const application_status = application.application_status;
 
     let statusColor;
+    let statusText;
     switch (application_status) {
         case 'ACCEPTED':
-            statusColor = 'green.500';
+            statusColor = 'green';
+            statusText = 'Accepted';
             break;
         case 'REJECTED':
-            statusColor = 'red.500';
+            statusColor = 'red';
+            statusText = 'Rejected';
             break;
         default:
-            statusColor = 'slate.400';
+            statusColor = 'slate';
+            statusText = 'Pending';
             break;
     }
 
@@ -76,28 +81,19 @@ export default function ApplicationCard({ application }: Props) {
                     </Text>
                     <Text
                         fontSize="md"
+                        color="slate.700"
                         fontWeight={500}
                         textTransform="capitalize"
-                        color={statusColor}
                     >
-                        Applied on: {applied_on}
+                        <Text
+                            as="b"
+                            color="slate.500">
+                            Applied on:
+                        </Text> {applied_on}
                     </Text>
                 </Stack>
-                <Stack
-                    direction="row"
-                    align="center"
-                    justify="end"
-                    w="10%"
-                    spacing={4}
-                >
-                    <IconButton
-                        variant="outline"
-                        isRound={true}
-                        borderColor="slate.400"
-                        color="slate.400"
-                        aria-label="Search database"
-                        icon={<Icon icon="iwwa:option" />}
-                    />
+                <Stack w="10%" justify="center" align="center">
+                    <Badge colorScheme={statusColor}>{statusText}</Badge>
                 </Stack>
             </Stack>
         </Stack>

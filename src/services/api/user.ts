@@ -35,3 +35,11 @@ export const getUserInfo = async () => {
         throw new Error("Failed to fetch user info");
     }
 };
+
+export const updateUserProfile = async (userId: number, updatedUserInfo: UserInfo) => {
+    try {
+        await axios.put(apiBaseUrl().concat(`user/account/${userId}`), updatedUserInfo);
+    } catch (error) {
+        throw new Error("Failed to update user profile");
+    }
+};

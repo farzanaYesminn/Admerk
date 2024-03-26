@@ -108,7 +108,7 @@ function JobCard({ job }: CardProps) {
                         fontWeight={700}
                         pb={1}
                     >
-                        {job.company.name[0]}
+                        {job.company.companyName[0]}
                     </Center>
                 </Stack>
                 <Stack w="30%" justify="center" spacing={0}>
@@ -117,7 +117,7 @@ function JobCard({ job }: CardProps) {
                     </Text>
                     <Heading
                         as={Link}
-                        to={`/job-details/${job.id}`}
+                        to={`/job-details/${job.jobId}`}
                         onClick={() => window.scrollTo(0, 0)}
                         my="auto"
                         fontSize="xl"
@@ -140,19 +140,6 @@ function JobCard({ job }: CardProps) {
                         </Text>{" "}
                         / {job.salaryDuration}
                     </Text>
-                </Stack>
-                <Stack direction="row" align="center" justify="end" w="20%" spacing={4}>
-                    <IconButton
-                        variant="outline"
-                        isRound={true}
-                        borderColor="slate.400"
-                        color="slate.400"
-                        aria-label="Search database"
-                        icon={<BsBookmarkPlus />}
-                    />
-                    <Button variant="primary" rounded="full" fontSize="sm">
-                        Apply
-                    </Button>
                 </Stack>
             </Stack>
         </Stack>
