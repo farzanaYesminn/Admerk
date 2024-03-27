@@ -1,21 +1,17 @@
-
-import ContactUs from '../../../assets/images/contact-us.jpg';
-
-
 export default function Contact() {
     return (
-<section className="bg-white dark:bg-gray-900  mx-auto ">
-    <div className="container px-6 flex flex-col justify-center items-center py-5 ">
+<section className="bg-white  shadow-xl mt-16 pb-28">
+    <div className="flex flex-col justify-center items-center py-5 ">
         <div className='flex flex-col justify-center items-center pb-20'>
 
-            <h1 className="mt-2 text-2xl font-semibold text-[#805ad5] md:text-5xl dark:text-white">Contact us</h1>
+            <h1 className="mt-2 text-2xl font-semibold text-[#805ad5] md:text-5xl">Contact us</h1>
 
-            <p className="mt-3 text-pink-400 dark:text-gray-200">Our friendly team is always here to chat.</p>
+            <p className="mt-3 text-pink-400 ">Our friendly team is always here to chat.</p>
         </div>
 
         <div className="flex flex-row gap-20 justify-center items-center py-12 ">
             <div className='flex flex-col justify-center items-center'>
-                <span className="inline-block p-3 text-[#805ad5] rounded-full bg-blue-100/80 dark:bg-gray-800">
+                <span className="inline-block p-3 text-[#805ad5] rounded-full bg-blue-100/80 ">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" className="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -23,13 +19,13 @@ export default function Contact() {
                     </svg>
                 </span>
 
-                <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">Email</h2>
+                <h2 className="mt-4 text-lg font-medium text-gray-800 ">Email</h2>
                 <p className="mt-2 text-gray-400 dark:text-gray-400">Our friendly team is here to help.</p>
-                <p className="mt-2 text-[#805ad5] dark:text-white">hello@merakiui.com</p>
+                <p className="mt-2 text-[#805ad5] ">hello@merakiui.com</p>
             </div>
 
             <div className='flex flex-col justify-center items-center'>
-                <span className="inline-block p-3 text-[#805ad5] rounded-full bg-blue-100/80 dark:bg-gray-800">
+                <span className="inline-block p-3 text-[#805ad5] rounded-full bg-blue-100/80 ">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" className="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -38,13 +34,13 @@ export default function Contact() {
                     </svg>
                 </span>
 
-                <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">Office</h2>
+                <h2 className="mt-4 text-lg font-medium text-gray-800 ">Office</h2>
                 <p className="mt-2 text-gray-400 dark:text-gray-400">Come say hello at our office HQ.</p>
-                <p className="mt-2 text-[#805ad5] dark:text-white">20 F St NW, Washington, DC 20001, United States</p>
+                <p className="mt-2 text-[#805ad5] ">20 F St NW, Washington, DC 20001, United States</p>
             </div>
 
             <div className='flex flex-col justify-center items-center'>
-                <span className="inline-block p-3 text-[#805ad5] rounded-full bg-blue-100/80 dark:bg-gray-800">
+                <span className="inline-block p-3 text-[#805ad5] rounded-full bg-blue-100/80 ">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" className="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -52,9 +48,9 @@ export default function Contact() {
                     </svg>
                 </span>
 
-                <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">Phone</h2>
+                <h2 className="mt-4 text-lg font-medium text-gray-800 ">Phone</h2>
                 <p className="mt-2 text-gray-400 dark:text-gray-400">Mon-Fri from 8am to 5pm.</p>
-                <p className="mt-2 text-[#805ad5] dark:text-white">+1 617-202-8069</p>
+                <p className="mt-2 text-[#805ad5] ">+1 617-202-8069</p>
             </div>
         </div>
     </div>
