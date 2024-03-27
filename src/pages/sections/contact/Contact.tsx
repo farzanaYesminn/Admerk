@@ -1,162 +1,64 @@
-'use client'
 
-import {
-    Container,
-    Flex,
-    Box,
-    Heading,
-    Text,
-    IconButton,
-    Button,
-    VStack,
-    HStack,
-    Wrap,
-    WrapItem,
-    FormControl,
-    FormLabel,
-    Input,
-    InputGroup,
-    InputLeftElement,
-    Textarea,
-} from '@chakra-ui/react'
-import {
-    MdPhone,
-    MdEmail,
-    MdLocationOn,
-    MdFacebook,
-    MdOutlineEmail,
-} from 'react-icons/md'
-import { BsGithub, BsDiscord, BsPerson } from 'react-icons/bs'
+import ContactUs from '../../../assets/images/contact-us.jpg';
+
 
 export default function Contact() {
     return (
-        <Container  maxW="full" mt={0} centerContent overflow="hidden">
-            <Flex>
-                <Box
-                    bg="#805ad5"
-                    color="white"
-                    borderRadius="lg"
-                    m={{ sm: 4, md: 16, lg: 10 }}
-                    p={{ sm: 5, md: 5, lg: 16 }}>
-                    <Box p={4}>
-                        <Wrap spacing={{ base: 20, sm: 3, md: 5, lg: 20 }}>
-                            <WrapItem>
-                                <Box>
-                                    <Heading>Contact</Heading>
-                                    <Text mt={{ sm: 3, md: 3, lg: 5 }} color="gray.500">
-                                        Fill up the form below to contact
-                                    </Text>
-                                    <Box py={{ base: 5, sm: 5, md: 8, lg: 10 }}>
-                                        <VStack pl={0} spacing={3} >
-                                            <Button
-                                                size="md"
-                                                height="48px"
-                                                width="200px"
-                                                variant="ghost"
-                                                color="#DCE2FF"
-                                                _hover={{ border: '2px solid #1C6FEB' }}
-                                                leftIcon={<MdPhone color="#1970F1" size="20px" />}>
-                                                +91-988888888
-                                            </Button>
-                                            <Button
-                                                size="md"
-                                                height="48px"
-                                                width="200px"
-                                                variant="ghost"
-                                                color="#DCE2FF"
-                                                _hover={{ border: '2px solid #1C6FEB' }}
-                                                leftIcon={<MdEmail color="#1970F1" size="20px" />}>
-                                                hello@abc.com
-                                            </Button>
-                                            <Button
-                                                size="md"
-                                                height="48px"
-                                                width="200px"
-                                                variant="ghost"
-                                                color="#DCE2FF"
-                                                _hover={{ border: '2px solid #1C6FEB' }}
-                                                leftIcon={<MdLocationOn color="#1970F1" size="20px" />}>
-                                                Karnavati, India
-                                            </Button>
-                                        </VStack>
-                                    </Box>
-                                    <HStack
-                                        mt={{ lg: 10, md: 10 }}
-                                        spacing={5}
-                                        px={5}
-                                        alignItems="flex-start">
-                                        <IconButton
-                                            aria-label="facebook"
-                                            variant="ghost"
-                                            size="lg"
-                                            isRound={true}
-                                            _hover={{ bg: '#0D74FF' }}
-                                            icon={<MdFacebook size="28px" />}
-                                        />
-                                        <IconButton
-                                            aria-label="github"
-                                            variant="ghost"
-                                            size="lg"
-                                            isRound={true}
-                                            _hover={{ bg: '#0D74FF' }}
-                                            icon={<BsGithub size="28px" />}
-                                        />
-                                        <IconButton
-                                            aria-label="discord"
-                                            variant="ghost"
-                                            size="lg"
-                                            isRound={true}
-                                            _hover={{ bg: '#0D74FF' }}
-                                            icon={<BsDiscord size="28px" />}
-                                        />
-                                    </HStack>
-                                </Box>
-                            </WrapItem>
-                            {/*<WrapItem>*/}
-                            {/*    <Box bg="white" borderRadius="lg">*/}
-                            {/*        <Box m={8} color="#0B0E3F">*/}
-                            {/*            <VStack spacing={5}>*/}
-                            {/*                <FormControl id="name">*/}
-                            {/*                    <FormLabel>Your Name</FormLabel>*/}
-                            {/*                    <InputGroup borderColor="#E0E1E7">*/}
-                            {/*                        <InputLeftElement pointerEvents="none">*/}
-                            {/*                            <BsPerson color="gray.800" />*/}
-                            {/*                        </InputLeftElement>*/}
-                            {/*                        <Input type="text" size="md" />*/}
-                            {/*                    </InputGroup>*/}
-                            {/*                </FormControl>*/}
-                            {/*                <FormControl id="name">*/}
-                            {/*                    <FormLabel>Mail</FormLabel>*/}
-                            {/*                    <InputGroup borderColor="#E0E1E7">*/}
-                            {/*                        <InputLeftElement pointerEvents="none">*/}
-                            {/*                            <MdOutlineEmail color="gray.800" />*/}
-                            {/*                        </InputLeftElement>*/}
-                            {/*                        <Input type="text" size="md" />*/}
-                            {/*                    </InputGroup>*/}
-                            {/*                </FormControl>*/}
-                            {/*                <FormControl id="name">*/}
-                            {/*                    <FormLabel>Message</FormLabel>*/}
-                            {/*                    <Textarea*/}
-                            {/*                        borderColor="gray.300"*/}
-                            {/*                        _hover={{*/}
-                            {/*                            borderRadius: 'gray.300',*/}
-                            {/*                        }}*/}
-                            {/*                        placeholder="message"*/}
-                            {/*                    />*/}
-                            {/*                </FormControl>*/}
-                            {/*                <FormControl id="name" float="right">*/}
-                            {/*                    <Button variant="solid" bg="#0D74FF" color="white" _hover={{}}>*/}
-                            {/*                        Send Message*/}
-                            {/*                    </Button>*/}
-                            {/*                </FormControl>*/}
-                            {/*            </VStack>*/}
-                            {/*        </Box>*/}
-                            {/*    </Box>*/}
-                            {/*</WrapItem>*/}
-                        </Wrap>
-                    </Box>
-                </Box>
-            </Flex>
-        </Container>
+<section className="bg-white dark:bg-gray-900  mx-auto ">
+    <div className="container px-6 flex flex-col justify-center items-center py-5 ">
+        <div className='flex flex-col justify-center items-center pb-20'>
+
+            <h1 className="mt-2 text-2xl font-semibold text-[#805ad5] md:text-5xl dark:text-white">Contact us</h1>
+
+            <p className="mt-3 text-pink-400 dark:text-gray-200">Our friendly team is always here to chat.</p>
+        </div>
+
+        <div className="flex flex-row gap-20 justify-center items-center py-12 ">
+            <div className='flex flex-col justify-center items-center'>
+                <span className="inline-block p-3 text-[#805ad5] rounded-full bg-blue-100/80 dark:bg-gray-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" className="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                    </svg>
+                </span>
+
+                <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">Email</h2>
+                <p className="mt-2 text-gray-400 dark:text-gray-400">Our friendly team is here to help.</p>
+                <p className="mt-2 text-[#805ad5] dark:text-white">hello@merakiui.com</p>
+            </div>
+
+            <div className='flex flex-col justify-center items-center'>
+                <span className="inline-block p-3 text-[#805ad5] rounded-full bg-blue-100/80 dark:bg-gray-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" className="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                    </svg>
+                </span>
+
+                <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">Office</h2>
+                <p className="mt-2 text-gray-400 dark:text-gray-400">Come say hello at our office HQ.</p>
+                <p className="mt-2 text-[#805ad5] dark:text-white">20 F St NW, Washington, DC 20001, United States</p>
+            </div>
+
+            <div className='flex flex-col justify-center items-center'>
+                <span className="inline-block p-3 text-[#805ad5] rounded-full bg-blue-100/80 dark:bg-gray-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" className="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                    </svg>
+                </span>
+
+                <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">Phone</h2>
+                <p className="mt-2 text-gray-400 dark:text-gray-400">Mon-Fri from 8am to 5pm.</p>
+                <p className="mt-2 text-[#805ad5] dark:text-white">+1 617-202-8069</p>
+            </div>
+        </div>
+    </div>
+</section>
+
     )
 }
