@@ -33,7 +33,6 @@ interface CompanyInfo {
     location: {
         country: string;
         state: string;
-        division: string;
         city: string;
         address: string;
         zipCode: string;
@@ -318,27 +317,6 @@ export default function CompanyProfile (){
                                                 location: {
                                                     ...companyInfo.location,
                                                     state: e.target.value,
-                                                },
-                                            })
-                                        }
-                                        disabled={!editing}
-                                    />
-                                </FormControl>
-
-                                <FormControl variant="auth" as={GridItem}>
-                                    <FormLabel htmlFor="division">Division</FormLabel>
-                                    <Input
-                                        id="division"
-                                        name="division"
-                                        type="text"
-                                        variant="unstyled"
-                                        value={editing ? companyInfo.location.division : companyInfo.location.division}
-                                        onChange={(e) =>
-                                            setCompanyInfo({
-                                                ...companyInfo,
-                                                location: {
-                                                    ...companyInfo.location,
-                                                    division: e.target.value,
                                                 },
                                             })
                                         }

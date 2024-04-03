@@ -14,6 +14,7 @@ type UserInfo = {
     isRefugee: boolean;
     refugeeNumber: string;
     contactNumber: string;
+    cvUploaded: boolean;
 };
 
 type Application = {

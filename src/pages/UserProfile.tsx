@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import {
     Card,
     CardBody,
@@ -14,9 +14,11 @@ import {
     GridItem,
     useToast,
 } from "@chakra-ui/react";
-import {Helmet} from "react-helmet-async";
-import {getUserInfo, updateUserProfile} from "services/api/user";
+import { Helmet } from "react-helmet-async";
+import { getUserInfo, updateUserProfile, downloadCV } from "services/api/user";
 import Loading from "components/helpers/Loading";
+import CVDropzone from "./CVDropzone";
+import { FaDownload } from "react-icons/fa";
 
 interface UserInfo {
     userId: number;
@@ -28,9 +30,9 @@ interface UserInfo {
     birthDate: string;
     email: string;
     contactNumber: string;
+    cvUploaded: boolean;
     location: {
         country: string;
-        division: string;
         state: string;
         city: string;
         address: string;
@@ -93,8 +95,23 @@ export default function UserProfile() {
         }
     };
 
+    const handleDownloadCV = async () => {
+        try {
+            if (userInfo?.userId) {
+                await downloadCV(userInfo.userId);
+            }
+        } catch (error) {
+            toast({
+                title: "CV Downloaded",
+                description: "Your CV is downloaded.",
+                status: "success",
+                duration: 4000,
+                isClosable: true,
+            });
+        }
+    };
 
-    if (loading) return <Loading/>;
+    if (loading) return <Loading />;
 
     return (
         <>
@@ -129,6 +146,18 @@ export default function UserProfile() {
                         </CardHeader>
                         <CardBody px={{base: 4, xl: 8}} py={{base: 4, xl: 8}}>
                             <SimpleGrid columns={1} spacing={6}>
+                                <CVDropzone userId={userInfo.userId} />
+                                <FormControl variant="auth" as={GridItem}>
+                                    {userInfo.cvUploaded ? (
+                                        <Button
+                                            onClick={handleDownloadCV}
+                                            leftIcon={<FaDownload />}
+                                        >
+                                            Download CV
+                                        </Button>
+                                    ) : null}
+                                </FormControl>
+
                                 <FormControl variant="auth" as={GridItem}>
                                     <Stack direction="row">
                                         <Checkbox
@@ -249,26 +278,6 @@ export default function UserProfile() {
                                         variant="unstyled"
                                         value={userInfo.location.country}
                                         disabled
-                                    />
-                                </FormControl>
-                                <FormControl variant="auth" as={GridItem}>
-                                    <FormLabel htmlFor="division">Division</FormLabel>
-                                    <Input
-                                        id="division"
-                                        name="division"
-                                        type="text"
-                                        variant="unstyled"
-                                        value={userInfo.location.division || ''}
-                                        onChange={(e) =>
-                                            setUserInfo({
-                                                ...userInfo,
-                                                location: {
-                                                    ...userInfo.location,
-                                                    division: e.target.value,
-                                                },
-                                            })
-                                        }
-                                        disabled={!editing}
                                     />
                                 </FormControl>
                                 <FormControl variant="auth" as={GridItem}>

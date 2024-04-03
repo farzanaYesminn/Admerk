@@ -76,3 +76,21 @@ export const updateCompanyProfile = async (companyId: number, companyInfo: Compa
         throw new Error('Failed to update company profile');
     }
 };
+
+export const downloadCV = async (userId: number) => {
+    try {
+        const res = await axios.get(apiBaseUrl().concat(`company/download-cv/${userId}`), {
+            responseType: 'blob',
+        });
+        const blob = new Blob([res.data], { type: 'application/pdf' });
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', `CV_${userId}.pdf`);
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+    } catch (error) {
+        throw new Error("Failed to download CV");
+    }
+};

@@ -86,7 +86,6 @@ export default function RegisterUser() {
             location: {
                 country: values.country,
                 state: values.state,
-                division: "",
                 city: "",
                 address: "",
                 zipCode: "",

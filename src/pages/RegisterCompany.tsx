@@ -33,7 +33,6 @@ export default function RegisterCompany() {
         location: {
             country: "",
             state: "",
-            division: "",
             city: "",
             address: "",
             zipCode: "",
@@ -62,7 +61,6 @@ export default function RegisterCompany() {
         location: Yup.object().shape({
             country: Yup.string().required("Country is required"),
             state: Yup.string().required("State is required"),
-            division: Yup.string().required("Division is required"),
             city: Yup.string().required("City is required"),
             address: Yup.string().required("Address is required"),
             zipCode: Yup.string().required("ZIP Code is required"),
@@ -239,26 +237,6 @@ export default function RegisterCompany() {
                             />
                             <FormErrorMessage mt={0} fontSize="md">
                                 {errors.location?.state}
-                            </FormErrorMessage>
-                        </FormControl>
-
-                        <FormControl
-                            variant="auth"
-                            as={GridItem}
-                            isInvalid={
-                                !!errors.location?.division && touched.location?.division
-                            }
-                        >
-                            <FormLabel htmlFor="location.division">Division</FormLabel>
-                            <Field
-                                as={Input}
-                                id="location.division"
-                                name="location.division"
-                                type="text"
-                                variant="unstyled"
-                            />
-                            <FormErrorMessage mt={0} fontSize="md">
-                                {errors.location?.division}
                             </FormErrorMessage>
                         </FormControl>
 

@@ -24,7 +24,6 @@ type UserRegisterCredentials = {
     location: {
         country: string;
         state: string;
-        division: string;
         city: string;
         address: string;
         zipCode: string;

@@ -1,4 +1,4 @@
-import {getApplicantInfo, respondToApplicant} from "../services/api/company";
+import React from "react";
 import {
     Box,
     Button,
@@ -9,9 +9,11 @@ import {
     Text,
     useToast,
 } from "@chakra-ui/react";
-import {Helmet} from "react-helmet-async";
-import {useLoaderData, useNavigate} from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import CallToAction from "./sections/CallToAction";
+import { getApplicantInfo, respondToApplicant, downloadCV} from "../services/api/company";
+import {FaDownload} from "react-icons/fa";
 
 function formatDate(inputDateString: string) {
     const inputDate = new Date(inputDateString);
@@ -58,6 +60,22 @@ export default function ApplicantDetails() {
                 title: "Failed to Respond Application",
                 description: "Something goes wrong.",
                 status: "error",
+                duration: 4000,
+                isClosable: true,
+            });
+        }
+    };
+
+    const downloadApplicantCV = async (userId: number) => {
+        try {
+            if (userId) {
+                await downloadCV(userId);
+            }
+        } catch (error) {
+            toast({
+                title: "CV Downloaded",
+                description: "Applicant CV is downloaded.",
+                status: "success",
                 duration: 4000,
                 isClosable: true,
             });
@@ -134,6 +152,15 @@ export default function ApplicantDetails() {
                                 </Stack>
                             </GridItem>
                         </SimpleGrid>
+                        <br/>
+                        {application.user_info.cvUploaded ? (
+                            <Button
+                                onClick={() => downloadApplicantCV(application.user_info.userId)}
+                                leftIcon={<FaDownload />}
+                            >
+                                Download CV
+                            </Button>
+                        ) : null}
                         {application.application_status !== 'ACCEPTED' && application.application_status !== 'REJECTED' && (
                             <Stack mt={6} direction="row" spacing={4}>
                                 <Button
@@ -181,6 +208,7 @@ function ApplicantDetail({ title, subtitle }: DetailProps) {
         </Stack>
     );
 }
+
 export const applicantDetailsLoader = async ({ params }: any) => {
     const { id } = params;
     if (!id) return null;
