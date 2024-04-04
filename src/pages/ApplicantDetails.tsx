@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Box,
     Button,
@@ -43,6 +43,7 @@ export default function ApplicantDetails() {
     const applications = useLoaderData() as Application[];
     const toast = useToast();
     const navigate = useNavigate();
+    const [applicantInfo, setApplicantInfo] = useState<Application | null>(null);
 
     const respondToJob = async (userId: number, response: string) => {
         try {
@@ -158,7 +159,7 @@ export default function ApplicantDetails() {
                                 onClick={() => downloadApplicantCV(application.user_info.userId)}
                                 leftIcon={<FaDownload />}
                             >
-                                Download CV
+                                {`CV_${application.user_info.firstName} ${application.user_info.lastName}.pdf`}
                             </Button>
                         ) : null}
                         {application.application_status !== 'ACCEPTED' && application.application_status !== 'REJECTED' && (
@@ -212,5 +213,7 @@ function ApplicantDetail({ title, subtitle }: DetailProps) {
 export const applicantDetailsLoader = async ({ params }: any) => {
     const { id } = params;
     if (!id) return null;
-    return await getApplicantInfo(parseInt(id));
+
+    const loadedApplicantInfo = await getApplicantInfo(parseInt(id));
+    return loadedApplicantInfo;
 };

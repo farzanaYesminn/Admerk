@@ -52,12 +52,6 @@ export default function RegisterCompany() {
         companyName: Yup.string().required("Company Title is required"),
         name: Yup.string().required("Company Username is required"),
         companyMail: Yup.string().email("Invalid email address").required("Email is required"),
-        website: Yup.string()
-            .matches(
-                /^(?=.{4,2048}$)((http|https):\/\/)?(www.)?(?!.*(http|https|www.))[a-zA-Z0-9_-]{1,63}(\.[a-zA-Z]{1,63}){1,5}(\/)?.([\w\?[a-zA-Z-_%\/@?]+)*([^\/\w\?[a-zA-Z0-9_-]+=\w+(&[a-zA-Z0-9_]+=\w+)*)?$/,
-                "Website should be a valid URL"
-            )
-            .required("Website is required"),
         location: Yup.object().shape({
             country: Yup.string().required("Country is required"),
             state: Yup.string().required("State is required"),
@@ -71,28 +65,6 @@ export default function RegisterCompany() {
         confirmPassword: Yup.string()
             .oneOf([Yup.ref("password"), undefined], "Passwords must match")
             .required("Confirm password is required"),
-        social: Yup.object().shape({
-            facebook: Yup.string().matches(
-                /^(?=.{4,2048}$)((http|https):\/\/)?(www.)?(?!.*(http|https|www.))(facebook\.com\/[a-zA-Z0-9_-]{1,63})(\/)?.*$/,
-                "Website should be a valid URL"
-            ),
-            instagram: Yup.string().matches(
-                /^(?=.{4,2048}$)((http|https):\/\/)?(www.)?(?!.*(http|https|www.))(instagram\.com\/[a-zA-Z0-9_-]{1,63})(\/)?.*$/,
-                "Website should be a valid URL"
-            ),
-            linkedIn: Yup.string().matches(
-                /^(?=.{4,2048}$)((http|https):\/\/)?(www.)?(?!.*(http|https|www.))(linkedin\.com\/[a-zA-Z0-9_-]{1,63})(\/)?.*$/,
-                "Website should be a valid URL"
-            ),
-            twitter: Yup.string().matches(
-                /^(?=.{4,2048}$)((http|https):\/\/)?(www.)?(?!.*(http|https|www.))(twitter\.com\/[a-zA-Z0-9_-]{1,63})(\/)?.*$/,
-                "Website should be a valid URL"
-            ),
-            whatsApp: Yup.string().matches(
-                /^(?=.{4,2048}$)((http|https):\/\/)?(www.)?(?!.*(http|https|www.))(whatsapp\.com\/[a-zA-Z0-9_-]{1,63})(\/)?.*$/,
-                "Website should be a valid URL"
-            ),
-        }),
         terms: Yup.boolean().oneOf([true], "You must accept the terms and conditions"),
     });
 

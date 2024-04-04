@@ -148,12 +148,12 @@ export default function UserProfile() {
                             <SimpleGrid columns={1} spacing={6}>
                                 <CVDropzone userId={userInfo.userId} />
                                 <FormControl variant="auth" as={GridItem}>
-                                    {userInfo.cvUploaded ? (
+                                    {userInfo.cvUploaded && !editing ? (
                                         <Button
                                             onClick={handleDownloadCV}
                                             leftIcon={<FaDownload />}
                                         >
-                                            Download CV
+                                            {`CV_${userInfo.firstName} ${userInfo.lastName}.pdf`}
                                         </Button>
                                     ) : null}
                                 </FormControl>

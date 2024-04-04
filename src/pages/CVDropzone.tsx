@@ -1,7 +1,6 @@
 import React, { useState, ChangeEvent } from "react";
 import { Box, Heading, Button, useToast } from "@chakra-ui/react";
 import { uploadCV } from "services/api/user";
-import { FaDownload } from "react-icons/fa";
 
 interface CVDropzoneProps {
     userId: number;
