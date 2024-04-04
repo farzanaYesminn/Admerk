@@ -146,7 +146,7 @@ export default function UserProfile() {
                         </CardHeader>
                         <CardBody px={{base: 4, xl: 8}} py={{base: 4, xl: 8}}>
                             <SimpleGrid columns={1} spacing={6}>
-                                <CVDropzone userId={userInfo.userId} />
+                                {editing && <CVDropzone userId={userInfo.userId} />}
                                 <FormControl variant="auth" as={GridItem}>
                                     {userInfo.cvUploaded && !editing ? (
                                         <Button
