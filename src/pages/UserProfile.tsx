@@ -191,12 +191,6 @@ export default function UserProfile() {
 
                                 }
 
-                                {userInfo.profilePicture && (
-                                    <GridItem colSpan={2} alignSelf="center">
-                                        <img src={URL.createObjectURL(userInfo.profilePicture)} alt="Profile" style={{ maxWidth: '100%', maxHeight: '200px' }} />
-                                    </GridItem>
-                                )}
-
                                 <FormControl variant="auth" as={GridItem}>
                                     {userInfo.cvUploaded && !editing ? (
                                         <Button
