@@ -140,6 +140,11 @@ function SidebarContent({ authInfo }: ContentProps) {
                         {authInfo.loginData.name}
                     </Text>
                 </Center>
+                <Center>
+                    <Text fontSize={{ base: "lg", lg: "xl" }} fontWeight={500} style={{ opacity: 0.5 }}>
+                        {authInfo.loginData.refugeeNumberOrAddress}
+                    </Text>
+                </Center>
             </Stack>
             <Stack spacing={1} mt={{ base: 2, md: 4, lg: 8 }}>
                 {authInfo.loginData.role === "user" && (

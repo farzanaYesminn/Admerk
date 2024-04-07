@@ -114,11 +114,18 @@ export default function UserProfile() {
         try {
             if (userInfo?.userId) {
                 await downloadCV(userInfo.userId, `CV_${userInfo.firstName} ${userInfo.lastName}.pdf`);
+                toast({
+                    title: "CV Downloaded",
+                    description: "CV has been downloaded successfully.",
+                    status: "success",
+                    duration: 4000,
+                    isClosable: true,
+                });
             }
         } catch (error) {
             toast({
                 title: "Not Downloaded",
-                description: "Your CV is not downloaded.",
+                description: "CV is not downloaded.",
                 status: "error",
                 duration: 4000,
                 isClosable: true,
