@@ -73,20 +73,47 @@ export const uploadCV = async (userId: number, cvFile: File, fileName: string) =
     }
 };
 
-export const downloadCV = async (userId: number) => {
+// export const downloadCV = async (userId: number) => {
+//     try {
+//         const res = await axios.get(apiBaseUrl().concat(`user/download-cv/${userId}`), {
+//             responseType: 'blob',
+//         });
+//         const blob = new Blob([res.data], { type: 'application/pdf' });
+//         const url = window.URL.createObjectURL(blob);
+//         const link = document.createElement('a');
+//         link.href = url;
+//         link.setAttribute('download', `CV_${userId}.pdf`);
+//         document.body.appendChild(link);
+//         link.click();
+//         link.remove();
+//     } catch (error) {
+//         throw new Error("Failed to download CV");
+//     }
+// };
+
+export const downloadCV = async (userId:number, fileName:string) => {
     try {
         const res = await axios.get(apiBaseUrl().concat(`user/download-cv/${userId}`), {
             responseType: 'blob',
         });
-        const blob = new Blob([res.data], { type: 'application/pdf' });
+
+        const blob = new Blob([res.data], { type: res.headers['content-type'] });
+
         const url = window.URL.createObjectURL(blob);
+
         const link = document.createElement('a');
         link.href = url;
-        link.setAttribute('download', `CV_${userId}.pdf`);
+        link.setAttribute('download', fileName);
         document.body.appendChild(link);
+
         link.click();
-        link.remove();
+
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+
+        return true;
     } catch (error) {
-        throw new Error("Failed to download CV");
+        console.error('Failed to download CV:', error);
+        return false;
     }
 };

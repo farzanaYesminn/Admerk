@@ -113,18 +113,19 @@ export default function UserProfile() {
     const handleDownloadCV = async () => {
         try {
             if (userInfo?.userId) {
-                await downloadCV(userInfo.userId);
+                await downloadCV(userInfo.userId, `CV_${userInfo.firstName} ${userInfo.lastName}.pdf`);
             }
         } catch (error) {
             toast({
-                title: "CV Downloaded",
-                description: "Your CV is downloaded.",
-                status: "success",
+                title: "Not Downloaded",
+                description: "Your CV is not downloaded.",
+                status: "error",
                 duration: 4000,
                 isClosable: true,
             });
         }
     };
+
 
     if (loading) return <Loading />;
 
