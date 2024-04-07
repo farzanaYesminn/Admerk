@@ -15,6 +15,8 @@ type UserInfo = {
     refugeeNumber: string;
     contactNumber: string;
     cvUploaded: boolean;
+    profilePicture: File;
+    curriculumVitae: File;
 };
 
 type Application = {

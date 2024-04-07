@@ -37,10 +37,28 @@ export const getUserInfo = async () => {
 };
 
 export const updateUserProfile = async (userId: number, updatedUserInfo: UserInfo) => {
+    const formData = new FormData();
+    formData.append('profilePicture', updatedUserInfo.profilePicture);
+    formData.append('curriculumVitae', updatedUserInfo.curriculumVitae);
+    formData.append('firstName', updatedUserInfo.firstName);
+    formData.append('lastName', updatedUserInfo.lastName);
+    formData.append('isRefugee', updatedUserInfo.isRefugee.toString());
+    formData.append('birthDate', updatedUserInfo.birthDate);
+    formData.append('email', updatedUserInfo.email);
+    formData.append('location', JSON.stringify(updatedUserInfo.location));
+    formData.append('contactNumber', updatedUserInfo.contactNumber);
+
     try {
-        await axios.put(apiBaseUrl().concat(`user/account/${userId}`), updatedUserInfo);
+        const response = await axios.put(apiBaseUrl().concat(`user/account/${userId}`), formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+        console.log(response.data);
+        return response.data;
     } catch (error) {
-        throw new Error("Failed to update user profile");
+        console.error('Error updating user profile:', error);
+        throw error;
     }
 };
 

@@ -17,7 +17,6 @@ import {
 import { Helmet } from "react-helmet-async";
 import { getUserInfo, updateUserProfile, downloadCV } from "services/api/user";
 import Loading from "components/helpers/Loading";
-import CVDropzone from "./CVDropzone";
 import { FaDownload } from "react-icons/fa";
 
 interface UserInfo {
@@ -30,6 +29,8 @@ interface UserInfo {
     birthDate: string;
     email: string;
     contactNumber: string;
+    profilePicture: File;
+    curriculumVitae: File;
     cvUploaded: boolean;
     location: {
         country: string;
@@ -45,6 +46,8 @@ export default function UserProfile() {
     const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [editing, setEditing] = useState<boolean>(false);
+    const [profilePictureFile, setProfilePictureFile] = useState<File | null>(null);
+    const [curriculumVitaeFile, setCurriculumVitaeFile] = useState<File | null>(null);
 
     useEffect(() => {
         (async () => {
@@ -70,6 +73,8 @@ export default function UserProfile() {
             if (userInfo) {
                 const updatedUserInfo: UserInfo = {
                     ...userInfo,
+                    profilePicture: profilePictureFile ? profilePictureFile : userInfo.profilePicture,
+                    curriculumVitae: curriculumVitaeFile ? curriculumVitaeFile : userInfo.curriculumVitae,
                 };
                 await updateUserProfile(userInfo.userId!, updatedUserInfo);
                 setEditing(false);
@@ -82,11 +87,11 @@ export default function UserProfile() {
                 });
             }
         } catch (error) {
-            console.error("Failed to update profile:", error);
+            console.error('Failed to update profile:', error);
             toast({
-                title: "Failed to Update Profile",
-                description: "An error occurred while updating your profile. Please try again.",
-                status: "error",
+                title: 'Failed to Update Profile',
+                description: 'An error occurred while updating your profile. Please try again.',
+                status: 'error',
                 duration: 4000,
                 isClosable: true,
             });
@@ -94,6 +99,16 @@ export default function UserProfile() {
             setLoading(false);
         }
     };
+
+    const handleProfilePictureChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const profilePicture = e.target.files?.[0] || new File([], '');
+        setProfilePictureFile(profilePicture);
+    };
+
+    const handleCurriculumVitaeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const curriculumVitae = e.target.files?.[0] || new File([], '');
+        setCurriculumVitaeFile(curriculumVitae);
+    }
 
     const handleDownloadCV = async () => {
         try {
@@ -146,7 +161,42 @@ export default function UserProfile() {
                         </CardHeader>
                         <CardBody px={{base: 4, xl: 8}} py={{base: 4, xl: 8}}>
                             <SimpleGrid columns={1} spacing={6}>
-                                {editing && <CVDropzone userId={userInfo.userId} />}
+                                {editing &&
+
+                                    <>
+                                        <FormControl variant="auth" as={GridItem}>
+                                            <FormLabel htmlFor="curriculumVitae">Curriculum Vitae</FormLabel>
+                                            <Input
+                                                id="curriculumVitae"
+                                                name="curriculumVitae"
+                                                type="file"
+                                                variant="unstyled"
+                                                onChange={handleCurriculumVitaeChange}
+                                                disabled={!editing}
+                                            />
+                                        </FormControl>
+
+                                        <FormControl variant="auth" as={GridItem}>
+                                            <FormLabel htmlFor="profilePicture">Profile Picture</FormLabel>
+                                            <Input
+                                                id="profilePicture"
+                                                name="profilePicture"
+                                                type="file"
+                                                variant="unstyled"
+                                                onChange={handleProfilePictureChange}
+                                                disabled={!editing}
+                                            />
+                                        </FormControl>
+                                    </>
+
+                                }
+
+                                {userInfo.profilePicture && (
+                                    <GridItem colSpan={2} alignSelf="center">
+                                        <img src={URL.createObjectURL(userInfo.profilePicture)} alt="Profile" style={{ maxWidth: '100%', maxHeight: '200px' }} />
+                                    </GridItem>
+                                )}
+
                                 <FormControl variant="auth" as={GridItem}>
                                     {userInfo.cvUploaded && !editing ? (
                                         <Button
