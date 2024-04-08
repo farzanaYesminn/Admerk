@@ -36,6 +36,22 @@ export const getUserInfo = async () => {
     }
 };
 
+export const getProfilePicture = async (profilePictureUrl: string): Promise<string | null> => {
+    try {
+        const response = await axios.get(apiBaseUrl().concat(profilePictureUrl), {
+            responseType: "blob",
+        });
+
+        const blob = new Blob([response.data], { type: response.headers["content-type"] });
+        const imageUrl = URL.createObjectURL(blob);
+
+        return imageUrl;
+    } catch (error) {
+        console.error("Failed to fetch profile picture:", error);
+        return null;
+    }
+};
+
 export const updateUserProfile = async (userId: number, updatedUserInfo: UserInfo) => {
     const formData = new FormData();
     formData.append('profilePicture', updatedUserInfo.profilePicture);

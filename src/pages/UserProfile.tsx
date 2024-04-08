@@ -13,9 +13,11 @@ import {
     Checkbox,
     GridItem,
     useToast,
+    Image,
+    Box,
 } from "@chakra-ui/react";
 import { Helmet } from "react-helmet-async";
-import { getUserInfo, updateUserProfile, downloadCV } from "services/api/user";
+import {getUserInfo, updateUserProfile, downloadCV, getProfilePicture} from "services/api/user";
 import Loading from "components/helpers/Loading";
 import { FaDownload } from "react-icons/fa";
 
@@ -32,6 +34,7 @@ interface UserInfo {
     profilePicture: File;
     curriculumVitae: File;
     cvUploaded: boolean;
+    profilePictureUrl: string;
     location: {
         country: string;
         state: string;
@@ -48,6 +51,7 @@ export default function UserProfile() {
     const [editing, setEditing] = useState<boolean>(false);
     const [profilePictureFile, setProfilePictureFile] = useState<File | null>(null);
     const [curriculumVitaeFile, setCurriculumVitaeFile] = useState<File | null>(null);
+    const [profilePicture, setProfilePicture] = useState<string | null>(null);
 
     useEffect(() => {
         (async () => {
@@ -62,6 +66,15 @@ export default function UserProfile() {
             }
         })();
     }, []);
+
+    useEffect(() => {
+        if (userInfo && userInfo.profilePictureUrl) {
+            (async () => {
+                const imageUrl = await getProfilePicture(userInfo.profilePictureUrl);
+                setProfilePicture(imageUrl);
+            })();
+        }
+    }, [userInfo]);
 
     const handleEdit = () => {
         setEditing(true);
@@ -169,8 +182,12 @@ export default function UserProfile() {
                         </CardHeader>
                         <CardBody px={{base: 4, xl: 8}} py={{base: 4, xl: 8}}>
                             <SimpleGrid columns={1} spacing={6}>
+                                {profilePicture && (
+                                    <Box maxW="200px" maxH="200px" overflow="hidden" borderRadius="full" boxShadow="md">
+                                        <Image src={profilePicture} alt="Profile Picture" />
+                                    </Box>
+                                )}
                                 {editing &&
-
                                     <>
                                         <FormControl variant="auth" as={GridItem}>
                                             <FormLabel htmlFor="curriculumVitae">Curriculum Vitae</FormLabel>
