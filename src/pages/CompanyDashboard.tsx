@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import {
     Card,
     CardBody,
@@ -8,12 +8,14 @@ import {
     SimpleGrid,
     Stack,
     Text,
+    Image,
 } from "@chakra-ui/react";
 import IntroCard from "./sections/userDashboard/IntroCard";
 import {Helmet} from "react-helmet-async";
 import {getAllJobApplications, getAllPostedJobs} from "services/api/company";
 import {Link} from "react-router-dom";
 import LoadingComp from "components/helpers/LoadingComp";
+import {getProfilePicture} from "../services/api/user";
 
 export default function CompanyDashboard() {
     const [postedJobs, setPostedJobs] = useState<Job[] | null>(null);
@@ -91,23 +93,43 @@ export default function CompanyDashboard() {
 type CardProps = { job: Job };
 
 function JobCard({job}: CardProps) {
+    const [profilePicture, setProfilePicture] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (job.company.profilePictureUrl) {
+            (async () => {
+                try {
+                    const imageUrl = await getProfilePicture(job.company.profilePictureUrl);
+                    setProfilePicture(imageUrl);
+                } catch (error) {
+                    console.error("Failed to fetch profile picture:", error);
+                }
+            })();
+        }
+    }, [job.company.profilePictureUrl]);
+
     return (
         <Stack justify="center">
             <Stack direction="row" spacing={6}>
                 <Stack w="10%" justify="center" align="center">
-                    <Center
-                        w={12}
-                        aspectRatio="1/1"
-                        bgColor="pink.500"
-                        rounded="lg"
-                        fontSize="2xl"
-                        color="white"
-                        fontWeight={700}
-                        pb={1}
-                    >
-                        {job.company.companyName[0]}
-                    </Center>
+                    {profilePicture ? (
+                        <Image src={profilePicture} alt="Profile Picture" w={12} h={12} rounded="full" />
+                    ) : (
+                        <Center
+                            w={12}
+                            h={12}
+                            bgColor="pink.500"
+                            rounded="full"
+                            fontSize="2xl"
+                            color="white"
+                            fontWeight={700}
+                            boxShadow="md"
+                        >
+                            {job.company.companyName[0]}
+                        </Center>
+                    )}
                 </Stack>
+
                 <Stack w="30%" justify="center" spacing={0}>
                     <Text color="pink.500" fontWeight={500} textTransform="capitalize">
                         {job.jobType}

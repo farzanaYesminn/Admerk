@@ -23,6 +23,8 @@ interface CompanyInfo {
     companyName: string;
     companyMail: string;
     website: string;
+    profilePicture: File;
+    profilePictureUrl: string;
     social: {
         facebook: string;
         instagram: string;
@@ -44,6 +46,8 @@ export default function CompanyProfile (){
     const [companyInfo, setCompanyInfo] = useState<CompanyInfo | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [editing, setEditing] = useState<boolean>(false);
+    const [profilePictureFile, setProfilePictureFile] = useState<File | null>(null);
+    const [profilePicture, setProfilePicture] = useState<string | null>(null);
 
     useEffect(() => {
         (async () => {
@@ -69,6 +73,7 @@ export default function CompanyProfile (){
             if (companyInfo) {
                 const updatedCompanyInfo: CompanyInfo = {
                     ...companyInfo,
+                    profilePicture: profilePictureFile ? profilePictureFile : companyInfo.profilePicture,
                 };
 
                 await updateCompanyProfile(companyInfo.companyId, updatedCompanyInfo);
@@ -93,6 +98,11 @@ export default function CompanyProfile (){
         } finally {
             setLoading(false);
         }
+    };
+
+    const handleProfilePictureChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const profilePicture = e.target.files?.[0] || new File([], '');
+        setProfilePictureFile(profilePicture);
     };
 
     if (loading) return <LoadingComp />;
@@ -130,6 +140,20 @@ export default function CompanyProfile (){
                         </CardHeader>
                         <CardBody px={{ base: 4, xl: 8 }} py={{ base: 4, xl: 8 }}>
                             <SimpleGrid columns={1} spacing={6}>
+
+                                { editing && (
+                                    <FormControl variant="auth" as={GridItem}>
+                                        <FormLabel htmlFor="profilePicture">Profile Picture</FormLabel>
+                                        <Input
+                                            id="profilePicture"
+                                            name="profilePicture"
+                                            type="file"
+                                            variant="unstyled"
+                                            onChange={handleProfilePictureChange}
+                                            disabled={!editing}
+                                        />
+                                    </FormControl>
+                                )}
 
                                 <FormControl variant="auth" as={GridItem}>
                                     <FormLabel htmlFor="companyName">Company Name</FormLabel>

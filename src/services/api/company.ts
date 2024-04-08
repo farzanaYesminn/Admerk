@@ -69,11 +69,27 @@ export const respondToApplicant = async (userId: number, response: string) => {
     }
 };
 
-export const updateCompanyProfile = async (companyId: number, companyInfo: CompanyInfo) => {
+export const updateCompanyProfile = async (companyId: number, updatedCompanyInfo: CompanyInfo) => {
+    const formData = new FormData();
+
+    formData.append('profilePicture', updatedCompanyInfo.profilePicture);
+    formData.append('companyName', updatedCompanyInfo.companyName);
+    formData.append('companyMail', updatedCompanyInfo.companyMail);
+    formData.append('social', JSON.stringify(updatedCompanyInfo.social));
+    formData.append('location', JSON.stringify(updatedCompanyInfo.location));
+    formData.append('website', updatedCompanyInfo.website);
+
     try {
-        await axios.put(apiBaseUrl().concat(`company/account/${companyId}`), companyInfo);
+        const response = await axios.put(apiBaseUrl().concat(`company/account/${companyId}`), formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+        console.log(response.data);
+        return response.data;
     } catch (error) {
-        throw new Error('Failed to update company profile');
+        console.error('Error updating user profile:', error);
+        throw error;
     }
 };
 

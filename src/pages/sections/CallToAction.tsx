@@ -30,14 +30,6 @@ export default function CallToAction() {
                         Signup and start finding job or talents
                     </Text>
                 </Box>
-                <Stack direction="row" mt={{ base: 4, lg: 0 }}>
-                    <Button size="lg" variant="secondary">
-                        Looking for a job
-                    </Button>
-                    <Button size="lg" variant="primary">
-                        Post a job
-                    </Button>
-                </Stack>
             </Stack>
         </Container>
     );

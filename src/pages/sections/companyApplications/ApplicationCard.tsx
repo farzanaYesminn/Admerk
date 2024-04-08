@@ -1,5 +1,7 @@
 import { Badge, Center, Heading, Stack, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import {useEffect, useState} from "react";
+import {getProfilePicture} from "../../../services/api/user";
 
 type Props = {
     application: Application;
@@ -13,6 +15,20 @@ export default function ApplicationCard({ application }: Props) {
         day: '2-digit'
     });
     const application_status = application.application_status;
+    const [profilePicture, setProfilePicture] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (user_info.profilePictureUrl) {
+            (async () => {
+                try {
+                    const imageUrl = await getProfilePicture(user_info.profilePictureUrl);
+                    setProfilePicture(imageUrl);
+                } catch (error) {
+                    console.error("Failed to fetch profile picture:", error);
+                }
+            })();
+        }
+    }, [user_info.profilePictureUrl]);
 
     let statusColor;
     let statusText;
@@ -35,18 +51,30 @@ export default function ApplicationCard({ application }: Props) {
         <Stack justify="center">
             <Stack direction="row" spacing={6}>
                 <Stack w="8%" justify="center" align="center">
-                    <Center
-                        w={14}
-                        aspectRatio="1/1"
-                        bgColor="pink.500"
-                        rounded="2xl"
-                        fontSize="2xl"
-                        color="white"
-                        fontWeight={700}
-                        pb={1}
-                    >
-                        {user_info.firstName[0]}
-                    </Center>
+                    {profilePicture ? (
+                        <img
+                            src={profilePicture}
+                            alt={`${user_info.firstName}'s Profile Picture`}
+                            style={{
+                                width: "56px",
+                                height: "56px",
+                                borderRadius: "50%"
+                            }}
+                        />
+                    ) : (
+                        <Center
+                            w={14}
+                            aspectRatio="1/1"
+                            bgColor="pink.500"
+                            rounded="full"
+                            fontSize="2xl"
+                            color="white"
+                            fontWeight={700}
+                            pb={1}
+                        >
+                            {user_info.firstName[0]}
+                        </Center>
+                    )}
                 </Stack>
                 <Stack w="30%" justify="center" spacing={0}>
                     <Heading

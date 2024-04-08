@@ -42,8 +42,12 @@ export default function AuthBtn() {
         <>
             <Menu>
                 <MenuButton>
-                    {profilePicture && (
+                    {profilePicture ? (
                         <img src={profilePicture} alt="Profile" style={{ borderRadius: '50%', width: '44px', height: '44px' }} />
+                    ) : (
+                        <div style={{ borderRadius: '50%', width: '44px', height: '44px', backgroundColor: '#ccc', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <span style={{ fontSize: '20px', fontWeight: 'bold', color: '#555' }}>{authInfo.loginData.name[0]}</span>
+                        </div>
                     )}
                 </MenuButton>
                 <MenuList>

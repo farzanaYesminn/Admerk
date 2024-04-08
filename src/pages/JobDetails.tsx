@@ -12,14 +12,15 @@ import {
     Stack,
     Text,
     useToast,
+    Image,
 } from "@chakra-ui/react";
 import {Icon} from "@iconify/react/dist/iconify.js";
-import {ReactNode, useState} from "react";
+import React, {ReactNode, useEffect, useState} from "react";
 import {Helmet} from "react-helmet-async";
 import {useLoaderData} from "react-router-dom";
 import {getJobInfo} from "services/api/jobs";
 import CallToAction from "./sections/CallToAction";
-import {applyJob} from "services/api/user";
+import {applyJob, getProfilePicture} from "services/api/user";
 import {useAuth} from "../lib/context/AuthProvider";
 
 function formatDate(inputDateString: string) {
@@ -89,6 +90,17 @@ export default function JobDetails() {
             });
         }
     };
+
+    const [profilePicture, setProfilePicture] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (job && job.company.profilePictureUrl) {
+            (async () => {
+                const imageUrl = await getProfilePicture(job.company.profilePictureUrl);
+                setProfilePicture(imageUrl);
+            })();
+        }
+    }, [job]);
 
     return (
         <>
@@ -196,7 +208,13 @@ export default function JobDetails() {
                                                 h={12}
                                                 rounded="full"
                                             >
-                                                {job.company.companyName[0]}
+                                                {profilePicture ? (
+                                                    <Box maxW="200px" maxH="200px" overflow="hidden" borderRadius="full" boxShadow="md">
+                                                        <Image src={profilePicture} alt="Profile Picture" />
+                                                    </Box>
+                                                ) : (
+                                                    job.company.companyName[0]
+                                                )}
                                             </Center>
                                         </Center>
                                         <Center mt={2}>

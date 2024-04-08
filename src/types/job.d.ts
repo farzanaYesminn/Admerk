@@ -9,6 +9,7 @@ type Job = {
         companyName: string;
         social: string;
         website: string;
+        profilePictureUrl: string;
     };
     jobType: string;
     postedOn: string;

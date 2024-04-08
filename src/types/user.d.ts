@@ -17,6 +17,7 @@ type UserInfo = {
     cvUploaded: boolean;
     profilePicture: File;
     curriculumVitae: File;
+    profilePictureUrl: string;
 };
 
 type Application = {

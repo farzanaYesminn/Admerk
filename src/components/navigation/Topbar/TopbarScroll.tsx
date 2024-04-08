@@ -63,16 +63,6 @@ export default function TopbarScroll() {
                             <Center>
                                 <AuthBtn />
                             </Center>
-                            <Center>
-                                <Button
-                                    variant="primary"
-                                    size="lg"
-                                    fontSize="md"
-                                    rounded="full"
-                                >
-                                    Post A Job
-                                </Button>
-                            </Center>
                         </Stack>
                     </Stack>
                 </Stack>

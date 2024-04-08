@@ -111,11 +111,6 @@ function TopbarContents({ toggleSidebar }: ContentProps) {
                     <Center>
                         <AuthBtn />
                     </Center>
-                    <Center display={{ base: "none", lg: "flex" }}>
-                        <Button variant="primary" size="lg" fontSize="md" rounded="full">
-                            Post A Job
-                        </Button>
-                    </Center>
                     <Center display={{ base: "flex", lg: "none" }}>
                         <IconButton
                             aria-label="menu"

@@ -140,8 +140,12 @@ function SidebarContent({ authInfo }: ContentProps) {
             </Stack>
             <Stack mt={8}>
                 <Center>
-                    {profilePicture && (
+                    {profilePicture ? (
                         <img src={profilePicture} alt="Profile" style={{ borderRadius: '50%', width: '100px', height: '100px' }} />
+                    ) : (
+                        <div style={{ borderRadius: '50%', width: '100px', height: '100px', backgroundColor: '#ccc', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <span style={{ fontSize: '48px', fontWeight: 'bold', color: '#555' }}>{authInfo.loginData.name[0]}</span>
+                        </div>
                     )}
                 </Center>
                 <Center>

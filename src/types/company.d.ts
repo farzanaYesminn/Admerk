@@ -19,6 +19,7 @@ type CompanyInfo = {
     name: string;
     companyName: string;
     companyMail: string;
+    profilePicture: File;
     social: {
         facebook?: string;
         instagram?: string;
