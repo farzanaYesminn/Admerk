@@ -8,6 +8,7 @@ type AuthInfo = {
         role: string;
         isRefugee: boolean;
         refugeeNumberOrAddress: string;
+        profilePictureUrl: string;
     };
 };
 

@@ -1,15 +1,27 @@
-import { Avatar, Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
+import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import LoginModal from "./LoginModal";
 import { useAuth } from "lib/context/AuthProvider";
 import { Spinner } from "@chakra-ui/react";
 import { logoutUser } from "services/api/auth";
 import { useNavigate } from "react-router-dom";
+import {useEffect, useState} from "react";
+import {getProfilePicture} from "../../../services/api/user";
 
 export default function AuthBtn() {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const { authInfo, setAuthInfo, authLoading } = useAuth();
     const navigate = useNavigate();
+    const [profilePicture, setProfilePicture] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (authInfo && authInfo.loginData.profilePictureUrl) {
+            (async () => {
+                const imageUrl = await getProfilePicture(authInfo.loginData.profilePictureUrl);
+                setProfilePicture(imageUrl);
+            })();
+        }
+    }, [authInfo]);
 
     if (authLoading) return <Spinner />;
 
@@ -30,14 +42,9 @@ export default function AuthBtn() {
         <>
             <Menu>
                 <MenuButton>
-                    <Avatar
-                        w="2.75rem"
-                        h="2.75rem"
-                        border="2px"
-                        bgColor="slate.100"
-                        color="pink.500"
-                        name={authInfo.loginData.name[0]}
-                    />
+                    {profilePicture && (
+                        <img src={profilePicture} alt="Profile" style={{ borderRadius: '50%', width: '44px', height: '44px' }} />
+                    )}
                 </MenuButton>
                 <MenuList>
                     <MenuItem

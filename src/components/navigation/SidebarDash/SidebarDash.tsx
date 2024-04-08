@@ -1,10 +1,12 @@
-import { Avatar, Box, Center, Stack, Text } from "@chakra-ui/react";
+import { Box, Center, Stack, Text } from "@chakra-ui/react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import BrandLogo from "../BrandLogo";
 import { Link, NavLink as RouterLink } from "react-router-dom";
 import { useAuth } from "lib/context/AuthProvider";
+import {useEffect, useState} from "react";
+import {getProfilePicture} from "../../../services/api/user";
 
 type Props = {
     sidebarOpen: boolean;
@@ -112,6 +114,17 @@ type ContentProps = {
 };
 
 function SidebarContent({ authInfo }: ContentProps) {
+    const [profilePicture, setProfilePicture] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (authInfo && authInfo.loginData.profilePictureUrl) {
+            (async () => {
+                const imageUrl = await getProfilePicture(authInfo.loginData.profilePictureUrl);
+                setProfilePicture(imageUrl);
+            })();
+        }
+    }, [authInfo]);
+
     return (
         <Stack h="full" pl={{ base: 2, md: 4, lg: 6 }} pr={{ base: 4, lg: 8 }}>
             <Stack direction="row" justify="center">
@@ -127,13 +140,9 @@ function SidebarContent({ authInfo }: ContentProps) {
             </Stack>
             <Stack mt={8}>
                 <Center>
-                    <Avatar
-                        size={{ base: "md", lg: "lg" }}
-                        border="2px"
-                        bgColor="white"
-                        color="pink.500"
-                        name={authInfo.loginData.name[0]}
-                    />
+                    {profilePicture && (
+                        <img src={profilePicture} alt="Profile" style={{ borderRadius: '50%', width: '100px', height: '100px' }} />
+                    )}
                 </Center>
                 <Center>
                     <Text fontSize={{ base: "lg", lg: "xl" }} fontWeight={500}>
