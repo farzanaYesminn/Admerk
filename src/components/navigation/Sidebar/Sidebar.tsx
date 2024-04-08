@@ -111,7 +111,7 @@ function SidebarContent({ authInfo }: ContentProps) {
                         </Text>
                     </Center>
                     <Center>
-                        <Text fontSize={{ base: "lg", lg: "xl" }} fontWeight={500} style={{ opacity: 0.5 }}>
+                        <Text fontSize={{ base: "md", lg: "lg" }} fontWeight={500} style={{ opacity: 0.5 }}>
                             {authInfo.loginData.refugeeNumberOrAddress}
                         </Text>
                     </Center>
